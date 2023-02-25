@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div>
-        Sigup
-    </div>
+    <Card>
+        
+    </Card>
 </template>

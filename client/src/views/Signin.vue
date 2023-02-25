@@ -1,5 +1,11 @@
+<script setup>
+import CardItem from "../components/CardItem.vue"
+</script>
+
 <template>
-    <div>
-        Sigin
-    </div>
+    <InputText type="text" />
+    <CardItem>
+        
+    </CardItem>
 </template>
+
