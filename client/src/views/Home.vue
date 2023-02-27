@@ -39,10 +39,10 @@ export default {
         </div>
     </div>
 
-    <Carousel :value="cars" :numVisible="1" :numScroll="1" :autoplayInterval="2000" >
-        <template #item="cars">
-            <div class="flex justify-content-center" v-for="car in cars">
-            <img :src="car.name">
+    <Carousel :value="cars" :numVisible="1" :numScroll="1" :autoplayInterval="2000"  class="flex justify-content-center">
+        <template #item="cars" >
+            <div class="flex justify-content-center" style="height: 280px" v-for="car in cars">
+            <img :src="car.name" style="height: 550px">
         </div>
         </template>
     </Carousel>
