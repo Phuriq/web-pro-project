@@ -25,27 +25,38 @@ export default {
 </script>
 
 <template>
-    <div class="flex justify-content-between w-full bg-primary p-1">
+    <div class="flex justify-content-between w-full bg-gray-900 p-2">
         <div>
             <Avatar label="P" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
-            <Button label="asd" />
-            <Button label="asd" />
-            <Button label="asd" />
-            <Button label="asd" />
+            <Button label="Home" class="p-button-text ml-5"/>
+            <Button label="Theater" class="p-button-text ml-3"/>
+            <Button label="Cinema" class="p-button-text ml-3"/>
         </div>
         <div class="flex align-content-center h-full">
-            <p class="mt-2"> User name </p>
-            <Avatar label="V" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+            <div>
+            <input class="p-inputtext p-component mr-5 border-green-600" placeholder="Search" type="text">
+            </div>
+            <p class="mt-2"> kstandforkyu </p>
+            <Avatar label="K" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
         </div>
     </div>
 
-    <Carousel :value="cars" :numVisible="1" :numScroll="1" :autoplayInterval="2000"  class="flex justify-content-center">
+    <Carousel :value="cars" :numVisible="1" :numScroll="1" :autoplayInterval="4000"  class="flex justify-content-center">
         <template #item="cars" >
             <div class="flex justify-content-center" style="height: 280px" v-for="car in cars">
             <img :src="car.name" style="height: 550px">
         </div>
         </template>
     </Carousel>
+    <div class="flex justify-content-between w-full bg-gray-800 p-5">
+        <div>
+            <Button label="กำลังฉาย" class="p-button-text text-xl ml-4"/>
+            <Button label="ACTION" class="p-button-text text-xl ml-4"/>
+            <Button label="COMEDY" class="p-button-text text-xl ml-4"/>
+            <Button label="HORROR" class="p-button-text text-xl ml-4"/>
+            <Button label="ROMANTIC" class="p-button-text text-xl ml-4"/>
+        </div>
+    </div>
 </template>
 
 <style>
