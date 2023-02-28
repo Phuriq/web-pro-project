@@ -11,6 +11,10 @@
     <CardItem>
         
     </CardItem></div>
+    <div class ="cards3 ">
+    <CardItem>
+        
+    </CardItem></div>
 
 </template>
 
@@ -43,7 +47,12 @@ export default{
 .cards2 {
   display: flex;
   margin-top: -400px;
-  margin-left: 400px;
+  margin-left: 800px;
+}
+.cards3 {
+  display: flex;
+  margin-top: -400px;
+  margin-left: 1200px;
 }
 
 </style>
