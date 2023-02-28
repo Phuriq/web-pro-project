@@ -1,4 +1,5 @@
 <script>
+import CardItem from "../components/CardItem.vue"
 export default {
     data() {
         return {
@@ -18,43 +19,52 @@ export default {
                     numVisible: 1,
                     numScroll: 1
                 }
-            ]
+            ],
+            movies: [
+        {
+            poster: 'https://i.pinimg.com/736x/c6/45/a5/c645a552af84202ce4bef5d9d287a9ce.jpg',
+        },
+        {
+            poster: 'https://fandomkpop.com/wp-content/uploads/2022/03/HONGEUNCHAE-LE-SSERAFILM.jpg',
+        },
+        {
+            poster: 'https://f.ptcdn.info/899/076/000/r9vgdpya6KVhthaumxD-o.jpg',
+        },
+        {
+            poster: 'https://f.ptcdn.info/899/076/000/r9vgdpya6KVhthaumxD-o.jpg',
         }
+    ]
+        }
+    },
+    components: {
+        CardItem
     }
 }
 </script>
 
 <template>
-    <div class="flex justify-content-between w-full bg-gray-900 p-2">
-        <div>
-            <Avatar label="P" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
-            <Button label="Home" class="p-button-text ml-5"/>
-            <Button label="Theater" class="p-button-text ml-3"/>
-            <Button label="Cinema" class="p-button-text ml-3"/>
-        </div>
-        <div class="flex align-content-center h-full">
-            <div>
-            <input class="p-inputtext p-component mr-5 border-green-600" placeholder="Search" type="text">
+    <div class="nav">
+    </div>
+    <Carousel :value="cars" :numVisible="1" :numScroll="1" :autoplayInterval="4000" class="flex justify-content-center">
+        <template #item="cars">
+            <div class="flex justify-content-center" style="height: 280px" v-for="car in cars">
+                <img :src="car.name" style="height: 550px">
             </div>
-            <p class="mt-2"> kstandforkyu </p>
-            <Avatar label="K" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+        </template>
+    </Carousel>
+    <div class="flex justify-content-between w-full bg-gray-800 p-1">
+        <div>
+            <Button label="กำลังฉาย" class="p-button-text text-xl ml-4" />
+            <Button label="ACTION" class="p-button-text text-xl ml-4" />
+            <Button label="COMEDY" class="p-button-text text-xl ml-4" />
+            <Button label="HORROR" class="p-button-text text-xl ml-4" />
+            <Button label="ROMANTIC" class="p-button-text text-xl ml-4" />
         </div>
     </div>
 
-    <Carousel :value="cars" :numVisible="1" :numScroll="1" :autoplayInterval="4000"  class="flex justify-content-center">
-        <template #item="cars" >
-            <div class="flex justify-content-center" style="height: 280px" v-for="car in cars">
-            <img :src="car.name" style="height: 550px">
-        </div>
-        </template>
-    </Carousel>
-    <div class="flex justify-content-between w-full bg-gray-800 p-5">
-        <div>
-            <Button label="กำลังฉาย" class="p-button-text text-xl ml-4"/>
-            <Button label="ACTION" class="p-button-text text-xl ml-4"/>
-            <Button label="COMEDY" class="p-button-text text-xl ml-4"/>
-            <Button label="HORROR" class="p-button-text text-xl ml-4"/>
-            <Button label="ROMANTIC" class="p-button-text text-xl ml-4"/>
+    <div class="grid">
+        <div class="col-3" v-for="i in 10">
+            <CardItem></CardItem>
         </div>
     </div>
 </template>

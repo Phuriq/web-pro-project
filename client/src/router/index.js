@@ -28,6 +28,16 @@ const router = createRouter({
       name: 'movie',
       component: () => import('../views/Movie.vue')
     },
+    {
+      path: '/theater',
+      name: 'theater',
+      component: () => import('../views/Theater.vue')
+    },
+    {
+      path: '/showtime',
+      name: 'showtime',
+      component: () => import('../views/Showtime.vue')
+    }
   ]
 })
 

@@ -21,7 +21,7 @@ import CardItem from "../components/CardItem.vue"
                         <span class="text-pink-100">Forgot password?</span>
                     </router-link>
                     </h5>
-                    <InputText type="text " v-model="value1" />
+                    <InputText type="password" v-model="value1" />
                 </div>
                 <router-link to="/home">
                 <div class="flex flex-column">
