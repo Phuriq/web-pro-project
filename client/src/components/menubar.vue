@@ -14,7 +14,7 @@
         </div>
         <div class="flex align-content-center h-full">
             <div>
-                <input class="p-inputtext p-component mr-5 border-green-600" placeholder="Search" type="text">
+                <input class="p-inputtext p-component mr-5 border-green-600 p-inputtext-sm" placeholder="Search" type="text">
             </div>
             <p class="mt-2"> kstandforkyu </p>
             <Avatar label="K" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />

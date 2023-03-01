@@ -9,3 +9,13 @@ import MenuBar from "./components/menubar.vue"
   <Toast position="bottom-right" />
   <RouterView />
 </template>
+
+
+
+<style>
+ * {
+  text-decoration: none;
+  font-family: 'Mitr', sans-serif;
+ }
+
+</style>
