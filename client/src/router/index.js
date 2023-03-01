@@ -34,9 +34,14 @@ const router = createRouter({
       component: () => import('../views/Theater.vue')
     },
     {
-      path: '/showtime',
-      name: 'showtime',
-      component: () => import('../views/Showtime.vue')
+      path: '/booking',
+      name: 'booking',
+      component: () => import('../views/Booking.vue')
+    },
+    {
+      path: '/movieinfo',
+      name: 'movieinfo',
+      component: () => import('../views/Movieinfo.vue')
     }
   ]
 })

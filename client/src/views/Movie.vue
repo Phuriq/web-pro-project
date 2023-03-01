@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex justify-content-center mt-8">
-      <Button class="mr-5 text-3xl" label="NowShowing" />
-      <Button class="text-3xl" label="Coming Soon" />
+      <Button class="p-button-text mr-5 text-3xl" label="NowShowing" />
+      <Button class="p-button-text text-3xl" label="Coming Soon" />
     </div>
     <div class="grid mt-5">
       <div class="col-3" v-for="i in 10">

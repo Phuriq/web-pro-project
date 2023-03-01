@@ -21,19 +21,19 @@ export default {
                 }
             ],
             movies: [
-        {
-            poster: 'https://i.pinimg.com/736x/c6/45/a5/c645a552af84202ce4bef5d9d287a9ce.jpg',
-        },
-        {
-            poster: 'https://fandomkpop.com/wp-content/uploads/2022/03/HONGEUNCHAE-LE-SSERAFILM.jpg',
-        },
-        {
-            poster: 'https://f.ptcdn.info/899/076/000/r9vgdpya6KVhthaumxD-o.jpg',
-        },
-        {
-            poster: 'https://f.ptcdn.info/899/076/000/r9vgdpya6KVhthaumxD-o.jpg',
-        }
-    ]
+                {
+                    poster: 'https://i.pinimg.com/736x/c6/45/a5/c645a552af84202ce4bef5d9d287a9ce.jpg',
+                },
+                {
+                    poster: 'https://fandomkpop.com/wp-content/uploads/2022/03/HONGEUNCHAE-LE-SSERAFILM.jpg',
+                },
+                {
+                    poster: 'https://f.ptcdn.info/899/076/000/r9vgdpya6KVhthaumxD-o.jpg',
+                },
+                {
+                    poster: 'https://f.ptcdn.info/899/076/000/r9vgdpya6KVhthaumxD-o.jpg',
+                }
+            ]
         }
     },
     components: {
@@ -61,12 +61,13 @@ export default {
             <Button label="ROMANTIC" class="p-button-text text-xl ml-4" />
         </div>
     </div>
-
-    <div class="grid">
-        <div class="col-3" v-for="i in 10">
-            <CardItem></CardItem>
+    <router-link to="/movieinfo">
+        <div class="grid">
+            <div class="col-3" v-for="i in 10">
+                <CardItem></CardItem>
+            </div>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <style>

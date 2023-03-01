@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import CardItem from "../components/CardItem.vue"
 
 </script>
