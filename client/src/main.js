@@ -100,10 +100,18 @@ import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPhone, faCouch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faPhone, faCouch);
 
 
 // import './assets/main.css';
 const app = createApp(App);
+
+app.component('font-awesome-icon', FontAwesomeIcon)
+
+app.config.productionTip = false
 
 app.use(router);
 app.use(PrimeVue, { ripple: true });
@@ -116,6 +124,7 @@ app.directive('badge', BadgeDirective);
 app.directive('ripple', Ripple);
 app.directive('styleclass', StyleClass);
 
+app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
 app.component('AutoComplete', AutoComplete);
@@ -206,4 +215,4 @@ app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
 
-app.mount('#app');
+app.component("font-awesome-icon", FontAwesomeIcon).mount('#app');
