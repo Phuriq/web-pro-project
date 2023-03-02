@@ -10,7 +10,7 @@ export default {
 
 <template>
     <div>
-        <Card class="flex flex-column surface-ground" style="height: 550px; width: 300px ">
+        <Card id= card-bg class="flex flex-column surface-ground border-round-2xl" style="height: 550px; width: 300px ">
             <template #content>
                 <img :src="img_src" style="height: 400px" class="border-round-xl"/>
                 <h5 class="text-green-400 mt-2">{{ date }}</h5>
@@ -21,3 +21,8 @@ export default {
         </Card>
     </div>
 </template>
+<style>
+#card-bg{
+    background-image:  linear-gradient(to  bottom right, #0b4438, #141b17, #165346)
+}
+</style>

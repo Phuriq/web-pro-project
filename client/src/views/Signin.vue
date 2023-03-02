@@ -44,4 +44,12 @@ import CardItem from "../components/CardItem.vue"
         </Card>
     </div>
 </template>
+<style>
+body{
+    background-image: url("https://cdn.discordapp.com/attachments/944864017460101151/1080794333042708500/image-removebg-preview_2.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 100% -330%;
+}
+</style>
 

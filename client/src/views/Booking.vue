@@ -47,7 +47,7 @@ export default {
             <Button label="ชำระเงิน" class="p-button-text text-xl ml-4" />
         </div>
     </div>
-    <div class="mt-5 grid">
+    <div class="mt-5 grid mb-5">
         <div class="col" v-for="i in 10">
             <Daybutton></Daybutton>
         </div>
@@ -102,14 +102,10 @@ export default {
             <h2 class="ml-2"> {{ this.row[0] }}</h2>
         </div>
     </div>
-    <h5>
-        Summary
-    </h5>
-    <div>
+    <div class="mt-5">
         <div>
             <div>
-                <Cardsum title="ดาบพิฆาต อสูร" seat="A6"  price="240 บาท"
-                    img_src="https://lh3.googleusercontent.com/T5wRaYd8r45DDG_Y5ZvbV9N0g92wuRRuLJ1SzWn8khwUWJxaaafJwHXdk9WfUlIYatxtvfBV8GvZ1X6dty2MP1_w8PQF38gsQg=s0">
+                <Cardsum id = sum title="   ดาบพิฆาต อสูร" seat="A6"  price="240 บาท" img_src="https://lh3.googleusercontent.com/T5wRaYd8r45DDG_Y5ZvbV9N0g92wuRRuLJ1SzWn8khwUWJxaaafJwHXdk9WfUlIYatxtvfBV8GvZ1X6dty2MP1_w8PQF38gsQg=s0">
                 </Cardsum>
             </div>
         </div>
@@ -124,5 +120,17 @@ h1 {
 h1:hover {
     color: lightcoral;
     cursor: pointer;
+}
+#sum{
+    position: absolute;
+    top: 100%;
+    left: 80%;
+
+}
+#sumt{
+    position: absolute;
+    top: 95%;
+    left: 80%;
+
 }
 </style>
