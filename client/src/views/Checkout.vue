@@ -23,7 +23,7 @@
             <div class="mt-5 text-2xl">
                 <h5>ยืนยันรายการ</h5>
                 <div class="field col-12 md:col-4">
-                    <InputNumber id="inputnumber"  placeholder="Cardnumber"  style="width: 600px;"/>
+                    <InputText type="text" id="inputnumber"  placeholder="Cardnumber"  style="width: 600px;"/>
                     <InputNumber id="inputnumber"  placeholder="cvc"  style="width: 10px; position:absolute; top:58.7%; left:55%;"/>
                 </div>
                 <p></p>
