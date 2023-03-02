@@ -42,6 +42,11 @@ const router = createRouter({
       path: '/movieinfo',
       name: 'movieinfo',
       component: () => import('../views/Movieinfo.vue')
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: () => import('../views/Checkout.vue')
     }
   ]
 })

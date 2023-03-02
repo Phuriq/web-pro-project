@@ -47,5 +47,9 @@ export default {
     margin: 0;
     padding: 0;
 }
+iframe{
+    position: relative;
+    left: 50%;
+}
 </style>
 

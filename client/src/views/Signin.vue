@@ -11,7 +11,7 @@ import CardItem from "../components/CardItem.vue"
         <h5>Sign in to Madooxxxx</h5>
     </div>
     <div class="flex justify-content-center mt-5">
-        <Card style="width: 25rem" class="surface-50 border-round-xs">
+        <Card style="width: 25rem" class="surface-50 border-round-xs" id="grad2">
             <template #content>
                 <div class="flex flex-column">
                     <h5>Username</h5>
@@ -32,7 +32,7 @@ import CardItem from "../components/CardItem.vue"
         </Card>
     </div>
     <div class="flex justify-content-center mt-4">
-        <Card style="width: 25rem" class="border-round-xs">
+        <Card style="width: 25rem" class="border-round-xs" id="grad2">
             <template #content>
                 <div class="flex justify-content-center">
                     New to Madooxxxx?ㅤ
@@ -44,4 +44,14 @@ import CardItem from "../components/CardItem.vue"
         </Card>
     </div>
 </template>
+<style>
+body{
+    background-image: url("https://cdn.discordapp.com/attachments/944864017460101151/1080893542676840458/image-removebg-preview_1_1.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position:  50% -130%;
+}
+#grad2 {
+    background-image: linear-gradient(to  bottom right, #000000, #000000, #000000);}
+</style>
 

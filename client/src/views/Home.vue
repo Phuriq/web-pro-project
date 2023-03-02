@@ -8,6 +8,7 @@ export default {
                 {
                     title: "qwe",
                     name: 'https://i.ytimg.com/vi/hH86YEyhirg/maxresdefault.jpg',
+           
                 },
                 {
                     title: "asd",
@@ -140,29 +141,29 @@ export default {
 }
 </script>
 
-<template>
+<template><div id="bg-gradient"></div>
     <div class="nav">
     </div>
     <Carousel :value="movies_show" :numVisible="1" :numScroll="1" :autoplayInterval="4000"
-        class="flex justify-content-center">
+        class="flex justify-content-center" >
         <template #item="movies_show">
-            <div class="flex justify-content-center" style="height: 280px" v-for="movie in movies_show">
+            <div class="flex justify-content-center" style="height: 280px" v-for="movie in movies_show" >
                 <img :src="movie.name" style="height: 550px">
             </div>
         </template>
     </Carousel>
-    <div class="flex justify-content-between w-full bg-gray-800 p-1">
+    <div  id=bg2 class="flex justify-content-between w-full  p-5">
         <div>
-            <Button @click="filterTag('Now')" label="กำลังฉาย" class="p-button-text text-xl ml-4" />
-            <Button @click="filterTag('Action')" label="ACTION" class="p-button-text text-xl ml-4" />
-            <Button @click="filterTag('Comedy')" label="COMEDY" class="p-button-text text-xl ml-4" />
-            <Button @click="filterTag('Horror')" label="HORROR" class="p-button-text text-xl ml-4" />
-            <Button @click="filterTag('Romantic')" label="ROMANTIC" class="p-button-text text-xl ml-4" />
+            <Button id = button @click="filterTag('Now')" label="กำลังฉาย" class="p-button-text text-xl ml-4" />
+            <Button id = button @click="filterTag('Action')" label="ACTION" class="p-button-text text-xl ml-4" />
+            <Button id = button @click="filterTag('Comedy')" label="COMEDY" class="p-button-text text-xl ml-4" />
+            <Button id = button @click="filterTag('Horror')" label="HORROR" class="p-button-text text-xl ml-4" />
+            <Button id = button @click="filterTag('Romantic')" label="ROMANTIC" class="p-button-text text-xl ml-4" />
         </div>
     </div>
-    <div class="grid p-3">
-        <div class="col-3" v-for="movie in movies">
-            <CardItem :title="movie.name" :date="movie.date" :img_src="movie.image"></CardItem>
+    <div class="grid p-3" id= bg3>
+        <div class="col-3" v-for="movie in movies" id= bg1>
+            <CardItem :title="movie.name" :date="movie.date" :img_src="movie.image" id="card"></CardItem>
         </div>
     </div>
 </template>
@@ -172,5 +173,28 @@ export default {
     margin: 0;
     padding: 0;
 }
+body{
+    background-image:  linear-gradient(to  bottom right, #000000, #2b1b23, #041106)
+}
+
+#bg2{
+    background-image:  linear-gradient(to  bottom right, #140613, #180c13, #2b0826)
+}
+#bg3{
+    background-image:  linear-gradient(to  bottom right, rgb(0, 0, 0), #1f071b, #000000)
+}
+#button:hover {
+    background-color: #5F9EA0;
+    color: white;
+}
+
+#card {
+	border-radius: 15px;
+    transition: 0.3s
+}
+#card:hover{
+    opacity: 0.5}
+#card:before{
+		opacity: 1}
 </style>
 
