@@ -132,7 +132,7 @@ export default {
             </div>
         </template>
     </Carousel>
-    <div  class="flex justify-content-between w-full bg-black-800 p-5">
+    <div  id=bg2 class="flex justify-content-between w-full  p-5">
         <div>
             <Button id = button @click="filterTag('Now')" label="กำลังฉาย" class="p-button-text text-xl ml-4" />
             <Button id = button @click="filterTag('Action')" label="ACTION" class="p-button-text text-xl ml-4" />
@@ -154,14 +154,14 @@ export default {
     padding: 0;
 }
 body{
-    background-image:  linear-gradient(to  bottom right, #000000, #090f09, #041106)
+    background-image:  linear-gradient(to  bottom right, #000000, #2b1b23, #041106)
 }
 
 #bg2{
     background-image:  linear-gradient(to  bottom right, #140613, #180c13, #2b0826)
 }
 #bg3{
-    background-image:  linear-gradient(to  bottom right, rgb(0, 0, 0), #0c1309, #000501)
+    background-image:  linear-gradient(to  bottom right, rgb(0, 0, 0), #1f071b, #000000)
 }
 #button:hover {
     background-color: #5F9EA0;
