@@ -1,6 +1,6 @@
 <script>
 import CardItem from "../components/CardItem.vue"
-
+import Movies from '../mockup/movies.json';
 export default {
   name: "App",
   components: {
@@ -12,11 +12,24 @@ export default {
     };
   },
   mounted() {
-    let movies = localStorage.getItem("movies")
-    this.movies = JSON.parse(movies);
+    this.movies = Movies
   },
   methods: {
-
+        filterTag(tag) {
+            console.log(tag)
+        },
+        navigateInfo(item) {
+            this.$router.push({
+                path: '/movieinfo', params: {
+                    id: item.id,
+                    name: item.name,
+                    date: item.date,
+                    title: item.title,
+                    image: item.image,
+                    trailer: item.trailer,
+                }
+            })
+    }
   },
 };
 </script>
@@ -27,11 +40,13 @@ export default {
       <Button class="p-button-text mr-5 text-3xl" label="NowShowing" />
       <Button class="p-button-text text-3xl" label="Coming Soon" />
     </div>
-    <div class="grid p-3">
-      <div class="col-3" v-for="movie in movies">
-        <CardItem :title="movie.name" :date="movie.date" :img_src="movie.image"></CardItem>
+    <div class="grid p-3" id=bg3>
+      <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
+          <CardItem class="cursor-pointer" :name="movie.name" :date="movie.date" :image="movie.image" id="card"
+              @click="navigateInfo(movie)">
+          </CardItem>
       </div>
-    </div>
+  </div>
   </div>
 </template>
 

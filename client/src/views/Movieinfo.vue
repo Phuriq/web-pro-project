@@ -1,10 +1,25 @@
-<script>
+<script >
 import CardItem from "../components/CardItem.vue"
+import Movies from '../mockup/movies.json';
+
 export default {
     data() {
         return {
+            movie: null,
+            movieId: null
         }
     },
+    // mounted() {
+    //     this.movieId = this.$route.params.id;
+    //     if (movieId) {
+    //         Movies.forEach(item => {
+    //             if (item.id == this.movieId) {
+    //                 this.movie = item;
+    //             }
+    //         })
+    //     }
+    //     console.log(this.movie)
+    // },
     components: {
         CardItem
     }
@@ -17,9 +32,9 @@ export default {
             <CardItem></CardItem>
         </div>
         <div class="ml-6 p-5 text-xl">
-            <p>Date</p>
+            <p>{{ $route.params.id }}</p>
             <div class="mt-5 text-2xl">
-                <h5>Movie name</h5>
+                <h5>{{ $route.params.name }}</h5>
             </div>
             <div class="mt-8">
                 <router-link to="/booking">
@@ -37,7 +52,7 @@ export default {
     <div class="mt-5">
         <div class="text-xl">
             <h5>เรื่องย่อ</h5>
-            <p>ชื่อ: Hong Eunchae (홍은채) (ฮงอึนแช)</p>
+            <p>{{ $route.params.title }}</p>
         </div>
     </div>
 </template>
@@ -47,7 +62,8 @@ export default {
     margin: 0;
     padding: 0;
 }
-iframe{
+
+iframe {
     position: relative;
     left: 50%;
 }

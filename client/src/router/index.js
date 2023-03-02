@@ -40,8 +40,9 @@ const router = createRouter({
     },
     {
       path: '/movieinfo',
-      name: 'movieinfo',
-      component: () => import('../views/Movieinfo.vue')
+      name: 'movieinfoDetail',
+      component: () => import('../views/Movieinfo.vue'),
+      props: true,
     },
     {
       path: '/checkout',

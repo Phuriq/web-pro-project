@@ -7,7 +7,8 @@ export default {
     data() {
         return {
             name: 'App',
-            row: ["A", "B", "C", "D", "E", "F"]
+            row: ["A", "B", "C", "D", "E", "F"],
+            seat: []
         }
     },
     components: {
@@ -17,14 +18,19 @@ export default {
     },
     methods: {
         selectSeat(seatNo) {
-            console.log(seatNo)
+            this.seat.push(seatNo)
+            console.log(this.seat)
         }
+    },
+    computed: {
+        selectedSeat(){
+            return this.seat.push(this.seat)
+    }
     },
     mounted() {
         let movies = localStorage.getItem("movies")
         this.movies = JSON.parse(movies);
     },
-    selectedseat: 0,
 }
 </script>
 
@@ -105,8 +111,17 @@ export default {
     <div class="mt-5">
         <div>
             <div>
-                <Cardsum id = sum title="   ดาบพิฆาต อสูร" seat="A6"  price="240 บาท" img_src="https://lh3.googleusercontent.com/T5wRaYd8r45DDG_Y5ZvbV9N0g92wuRRuLJ1SzWn8khwUWJxaaafJwHXdk9WfUlIYatxtvfBV8GvZ1X6dty2MP1_w8PQF38gsQg=s0">
-                </Cardsum>
+                <Card id=sum class="flex surface-ground border-3 border-round border-green-600"
+                    style="height: 650px; width: 300px ">
+                    <template #content>
+                        <img :src="img_src" style="height: 400px" class="border-round-xl" />
+                        <h5 class="text-xl mt-1">{{ title }}</h5>
+                        <h4 class="text-sm mt-1 text-yellow-200">ราคา : {{ price }} ที่นั่ง : {{ seat }}</h4>
+                        <router-link to="/checkout">
+                            <Button class="flex flex-column mt-5" label="KYU" style="width: 260px" />
+                        </router-link>
+                    </template>
+                </Card>
             </div>
         </div>
     </div>
@@ -121,13 +136,15 @@ h1:hover {
     color: lightcoral;
     cursor: pointer;
 }
-#sum{
+
+#sum {
     position: absolute;
     top: 100%;
     left: 80%;
 
 }
-#sumt{
+
+#sumt {
     position: absolute;
     top: 95%;
     left: 80%;

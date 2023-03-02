@@ -4,7 +4,7 @@
     </Card> -->
     <Card>
         <template #content>
-            <Button class="p-button-text" label="วันศุกร์พ่อมึงตาย"/>
+            <Button class="p-button-text" label="Days"/>
         </template>
     </Card>
 </template>
