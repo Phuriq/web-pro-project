@@ -152,7 +152,7 @@ h1:hover {
 
 #sum {
     position: absolute;
-    top: 100%;
+    top: 80%;
     left: 80%;
 
 }
