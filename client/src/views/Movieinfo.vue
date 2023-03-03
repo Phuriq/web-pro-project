@@ -3,56 +3,57 @@ import CardItem from "../components/CardItem.vue"
 import Movies from '../mockup/movies.json';
 
 export default {
-    data() {
-        return {
-            movie: null,
-            movieId: null
+    name: "Movieinfo",
+    props: {
+        id: {
+            type: String,
+            required: true
         }
     },
-    // mounted() {
-    //     this.movieId = this.$route.params.id;
-    //     if (movieId) {
-    //         Movies.forEach(item => {
-    //             if (item.id == this.movieId) {
-    //                 this.movie = item;
-    //             }
-    //         })
-    //     }
-    //     console.log(this.movie)
-    // },
+    data() {
+        return {
+            movie: {},
+        }
+    },
+    methods: {
+        goBooking: function () {
+            this.$router.push('/booking/' + this.id)
+        }
+    },
+    mounted() {
+        this.movie = Movies.find(movie => movie.id == this.id);
+    },
     components: {
         CardItem
-    }
+    },
 }
 </script>
 
 <template>
-    <div class="grid mt-5">
+    <div class="grid mt-5 px-5">
         <div class="col-3" style="width: 20rem">
-            <CardItem></CardItem>
+            <img :src="this.movie.image" style="height: 400px" class="border-round-xl">
         </div>
-        <div class="ml-6 p-5 text-xl">
-            <p>{{ $route.params.id }}</p>
+        <div class=" p-5 text-xl">
+            <p> {{ this.movie.date }} </p>
             <div class="mt-5 text-2xl">
-                <h5>{{ $route.params.name }}</h5>
+                <h5>{{ this.movie.name }}</h5>
             </div>
             <div class="mt-8">
-                <router-link to="/booking">
-                    <Button class="p-button-outlined" label="จองรอบฉาย" />
-                </router-link>
+                <Button class="p-button-outlined" label="จองรอบฉาย" @click="goBooking()" />
             </div>
         </div>
-        <div class="flex justify-content-end flex-wrap ml-8">
-            <iframe width="800" height="450" src="https://www.youtube.com/embed/JY6rUiuxyFI" title="YouTube video player"
-                frameborder="0"
+        <div class="flex justify-content-end flex-wrap">
+            <iframe width="800" height="450" :src="this.movie.trailer" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
-    <div class="mt-5">
+    <div class="mt-5 px-5">
         <div class="text-xl">
             <h5>เรื่องย่อ</h5>
-            <p>{{ $route.params.title }}</p>
+            <p class="">{{ this.movie.title }}</p>
         </div>
     </div>
 </template>

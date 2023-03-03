@@ -5,7 +5,8 @@ export default {
         'title',
         'date',
         'price',
-        'seat'
+        'seat',
+        "trailer"
     ]
 }
 </script>

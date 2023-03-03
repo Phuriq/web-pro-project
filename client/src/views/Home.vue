@@ -32,17 +32,8 @@ export default {
         filterTag(tag) {
             console.log(tag)
         },
-        navigateInfo(item) {
-            this.$router.push({
-                path: '/movieinfo', params: {
-                    id: item.id,
-                    name: item.name,
-                    date: item.date,
-                    title: item.title,
-                    image: item.image,
-                    trailer: item.trailer,
-                }
-            })
+        navigateInfo(id) {
+            this.$router.push('/movieinfo/' + id)
         }
     }
 }
@@ -72,7 +63,7 @@ export default {
     <div class="grid p-3" id=bg3>
         <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
             <CardItem class="cursor-pointer" :name="movie.name" :date="movie.date" :image="movie.image" id="card"
-                @click="navigateInfo(movie)">
+                @click="navigateInfo(movie.id)">
             </CardItem>
         </div>
     </div>

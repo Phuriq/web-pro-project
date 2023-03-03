@@ -5,6 +5,8 @@ export default {
         "name",
         "date",
         "image",
+        "title",
+        "trailer"
     ]
 }
 </script>

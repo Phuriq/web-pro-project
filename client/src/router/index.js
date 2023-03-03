@@ -34,12 +34,13 @@ const router = createRouter({
       component: () => import('../views/Theater.vue')
     },
     {
-      path: '/booking',
+      path: '/booking/:id',
       name: 'booking',
-      component: () => import('../views/Booking.vue')
+      component: () => import('../views/Booking.vue'),
+      props: true,
     },
     {
-      path: '/movieinfo',
+      path: '/movieinfo/:id',
       name: 'movieinfoDetail',
       component: () => import('../views/Movieinfo.vue'),
       props: true,
