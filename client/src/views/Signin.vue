@@ -8,7 +8,7 @@ import CardItem from "../components/CardItem.vue"
         <img src="" alt="">
     </div>
     <div class="flex text-4xl justify-content-center mt-8">
-        <h5>Sign in to Madooxxxx</h5>
+        <h5>Sign in to MAXCIMA</h5>
     </div>
     <div class="flex justify-content-center mt-5">
         <Card style="width: 25rem" class="surface-50 border-round-xs" id="grad2">
@@ -35,7 +35,7 @@ import CardItem from "../components/CardItem.vue"
         <Card style="width: 25rem" class="border-round-xs" id="grad2">
             <template #content>
                 <div class="flex justify-content-center">
-                    New to Madooxxxx?ㅤ
+                    New to MAXCIMA?ㅤ
                     <router-link to="/signup">
                         <span class="text-pink-100">Create a account</span>
                     </router-link>
