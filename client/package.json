@@ -10,7 +10,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
     "chart.js": "^4.2.1",
+    "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primevue": "^3.23.0",
     "vue": "^3.2.47",
