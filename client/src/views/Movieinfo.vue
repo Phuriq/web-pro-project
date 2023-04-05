@@ -13,6 +13,20 @@ export default {
     data() {
         return {
             movie: {},
+            actor_show: [
+                {
+                    name: "kiw",
+                    pic: "http://pm1.narvii.com/6320/40c7636eb746312edf10d70e00327e7a7830d103_00.jpg"
+                },
+                {
+                    name: "kiwww",
+                    pic: "http://pm1.narvii.com/6320/40c7636eb746312edf10d70e00327e7a7830d103_00.jpg"
+                },
+                {
+                    name: "kiwwwl",
+                    pic: "http://pm1.narvii.com/6320/40c7636eb746312edf10d70e00327e7a7830d103_00.jpg"
+                }
+            ]
         }
     },
     methods: {
@@ -56,6 +70,19 @@ export default {
             <p class="">{{ this.movie.title }}</p>
         </div>
     </div>
+    <div class="grid block bg-black-500 font-bold text-left p-4 border-round mt-5">
+        <div class="col mt-5">
+            <h5 class="text-xl">Actor</h5>
+            <div class="flex flex-wrap align-items-center justify-content-center" v-for="actors in actor_show" :key="actors.id">
+                <div class="grid-3">
+                    <div>
+                        <img :src="actors.pic" style="height: 200px" class="row-3 border-round-xl" />
+                        <h1 class=""> {{ actors.name }} </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <style>
@@ -66,7 +93,7 @@ export default {
 
 iframe {
     position: relative;
-    left: 50%;
+    left: 30%;
 }
 </style>
 

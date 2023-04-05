@@ -1,4 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Movies from '../mockup/movies.json';
+
+
+// router.get('/home', function (req, res, next) {
+//   var searchtext = req.query.search;
+//   var resultsearch = Movies;
+//   if(searchtext){
+//       resultsearch = Movies.filter(item => {
+//           return item.title.toLowerCase().includes(searchtext.toLowerCase()) || item.author.toLowerCase().includes(searchtext.toLocaleLowerCase())
+//       })
+//   }
+//   var data = { Movies: resultsearch , title: 'Express' }
+//   res.render('index', data)
+// })
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

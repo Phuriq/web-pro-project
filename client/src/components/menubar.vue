@@ -3,18 +3,21 @@
         <div>
             <Avatar label="P" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
             <router-link to="/home">
-            <Button label="Home" class="p-button-text ml-5" id=button />
+                <Button label="Home" class="p-button-text ml-5" id=button />
             </router-link>
             <router-link to="/movie">
-            <Button label="Cinema" class="p-button-text ml-3" id=button />
+                <Button label="Cinema" class="p-button-text ml-3" id=button />
             </router-link>
             <router-link to="/theater">
-            <Button label="Theater" class="p-button-text ml-3" id=button />
+                <Button label="Theater" class="p-button-text ml-3" id=button />
             </router-link>
         </div>
         <div class="flex align-content-center h-full">
             <div>
-                <input class="p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl" placeholder="Search" type="text">
+                <!-- <form action="" method="GET"> -->
+                    <input class="p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
+                        placeholder="Search" type="text">
+                <!-- </form> -->
             </div>
             <p class="mt-2"> kstandforkyu </p>
             <Avatar label="K" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
@@ -28,12 +31,11 @@ export default {
 
 <style>
 #grad1 {
-    background-image: linear-gradient(to  bottom right, #000000, #2F4F4F, #8FBC8F);}
-
-#button:hover {
-        background-color: #5F9EA0;
-        color: white;
+    background-image: linear-gradient(to bottom right, #000000, #2F4F4F, #8FBC8F);
 }
 
-
-    </style>
+#button:hover {
+    background-color: #5F9EA0;
+    color: white;
+}
+</style>
