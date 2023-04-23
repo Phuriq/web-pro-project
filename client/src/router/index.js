@@ -63,6 +63,12 @@ const router = createRouter({
       path: '/checkout',
       name: 'checkout',
       component: () => import('../views/Checkout.vue')
+    },
+    {
+      path: '/movieintheater',
+      name: 'movieintheater',
+      component: () => import('../views/Movie-in-theter.vue'),
+      props: true,
     }
   ]
 })

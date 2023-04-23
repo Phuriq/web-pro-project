@@ -25,6 +25,12 @@ export default {
                 {
                     name: "kiwwwl",
                     pic: "http://pm1.narvii.com/6320/40c7636eb746312edf10d70e00327e7a7830d103_00.jpg"
+                },
+            ],
+            director: [
+                {
+                    name: "kiwwwlddddirrrr",
+                    pic: "http://pm1.narvii.com/6320/40c7636eb746312edf10d70e00327e7a7830d103_00.jpg"
                 }
             ]
         }
@@ -70,14 +76,29 @@ export default {
             <p class="">{{ this.movie.title }}</p>
         </div>
     </div>
-    <div class="grid block bg-black-500 font-bold text-left p-4 border-round mt-5">
-        <div class="col mt-5">
-            <h5 class="text-xl">Actor</h5>
-            <div class="flex flex-wrap align-items-center justify-content-center" v-for="actors in actor_show" :key="actors.id">
-                <div class="grid-3">
-                    <div>
-                        <img :src="actors.pic" style="height: 200px" class="row-3 border-round-xl" />
-                        <h1 class=""> {{ actors.name }} </h1>
+    <div class="flex justify-content-between flex-wrap">
+        <div class="grid block bg-black-500 font-bold text-left p-4 border-round mt-5 w-6">
+            <div class="col mt-5">
+                <h5 class="text-xl">Actor</h5>
+                <div class="flex flex-wrap justify-between">
+                    <div v-for="actor in actor_show" :key="actor.name" class="w-1/3 px-4">
+                        <div class="text-center">
+                            <img :src="actor.pic" style="height: 200px" class="border-round-xl" />
+                            <h1 class="text-white text-base mt-2">{{ actor.name }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid block bg-black-500 font-bold text-left p-4 border-round mt-5 w-6">
+            <div class="col mt-5">
+                <h5 class="text-xl">Director</h5>
+                <div class="flex flex-wrap justify-between">
+                    <div v-for="dir in director" :key="dir.name" class="w-1/3 px-4">
+                        <div class="text-center">
+                            <img :src="dir.pic" style="height: 200px" class="border-round-xl" />
+                            <h1 class="text-white text-base mt-2">{{ dir.name }}</h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,4 +117,3 @@ iframe {
     left: 30%;
 }
 </style>
-

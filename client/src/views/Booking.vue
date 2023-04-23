@@ -1,8 +1,8 @@
 <script>
 import CardItem from "../components/CardItem.vue"
 import Cardsum from "../components/Cardsum.vue";
-import Daybutton from "../components/Daybutton.vue";
 import Movies from '../mockup/movies.json';
+import dayjs from 'dayjs';
 
 export default {
     name: "Booking",
@@ -17,15 +17,22 @@ export default {
             name: 'App',
             row: ["A", "B", "C", "D", "E", "F"],
             seat: [],
-            movie: {}
+            movie: {},
+            dateResult: [],
+            date: new Date(),
+            isOnce: true,
         }
     },
     components: {
         CardItem,
-        Daybutton,
         Cardsum
     },
     methods: {
+        formatDate(dateString) {
+            const date = dayjs(dateString);
+            // Then specify how you want your dates to be formatted
+            return date.format('ddd D MMM ');
+        },
         selectSeat(index, seatNo) {
             if (!this.seat.includes(seatNo)) {
                 this.seat.push(seatNo);
@@ -34,17 +41,67 @@ export default {
                 this.seat.splice(this.seat.indexOf(seatNo), 1);
             }
         },
+        getDate(week = 0) {
+            this.isOnce = false;
+            let numOfWeek = 7;
+            console.log(numOfWeek);
+            for (let i = week * numOfWeek; i = (week * numOfWeek) + numOfWeek; i++) {
+                let nextDay = new Date(this.today);
+                nextDay.setDate(this.date.getDate() + i);
+                this.dateResult.push({ data: nextDay, isSelect: false});
+            }
+            this.dateResult[0].isSelect = true
+        }
         // arrayRemove(arr, value) {
-        //     return arr.filter(function (ele) {
+        //     return arr.filter(function (ele) { 
         //         return ele != value;
         //     });
         // }
     },
     mounted() {
-        this.movie = Movies.find(movie => movie.id == this.id);
+        // this.movie = Movies.find(movie => movie.id == this.id);
+        
     },
 }
 </script>
+
+<style>
+.customdate {
+    width: 165px;
+    height: 70px;
+    border-width: 5px;
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom right, #000000, #2F4F4F, #8FBC8F);
+}
+
+.isSelected {
+    color: red;
+    font-weight: bold;
+}
+
+h1 {
+    color: lightgreen;
+}
+
+h1:hover {
+    color: lightcoral;
+    cursor: pointer;
+}
+
+#sum {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+
+}
+
+#sumt {
+    position: absolute;
+    top: 95%;
+    left: 80%;
+
+}
+</style>
 
 <template>
     <div class="grid mt-5 px-5 mb-4">
@@ -66,8 +123,10 @@ export default {
         </div>
     </div>
     <div class="mt-5 grid mb-5">
-        <div class="col" v-for="i in 10">
-            <Daybutton></Daybutton>
+        <div class="col flex justify-content-center">
+            <div class="customdate isSelected flex align-items-center justify-content-center pt-2 m-3 " v-for="date in 7">
+                {{ formatDate(date) }}
+            </div>
         </div>
     </div>
     <div class="bg-black container">
@@ -139,28 +198,3 @@ export default {
         </div>
     </div>
 </template>
-
-<style>
-h1 {
-    color: lightgreen;
-}
-
-h1:hover {
-    color: lightcoral;
-    cursor: pointer;
-}
-
-#sum {
-    position: absolute;
-    top: 80%;
-    left: 80%;
-
-}
-
-#sumt {
-    position: absolute;
-    top: 95%;
-    left: 80%;
-
-}
-</style>

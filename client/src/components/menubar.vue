@@ -1,7 +1,7 @@
 <template>
-    <div id=grad1 class="flex justify-content-between w-full bg-gray-900 p-2">
-        <div>
-            <Avatar label="P" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+    <div id=grad1 class="flex align-items-center justify-content-between w-full bg-gray-900 p-2">
+        <div class="flex align-items-center">
+            <Avatar label="P" class="align-self-center" style="background-color:#2196F3; color: #ffffff" shape="circle" />
             <router-link to="/home">
                 <Button label="Home" class="p-button-text ml-5" id=button />
             </router-link>
@@ -19,8 +19,8 @@
                         placeholder="Search" type="text">
                 <!-- </form> -->
             </div>
-            <p class="mt-2"> kstandforkyu </p>
-            <Avatar label="K" class="mx-3" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+            <p class="align-self-center"> kstandforkyu </p>
+            <Avatar label="K" class="align-self-center mx-4" style="background-color:#2196F3; color: #ffffff" shape="circle" />
         </div>
     </div>
 </template>
