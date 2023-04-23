@@ -15,7 +15,7 @@
         <div class="flex align-content-center h-full">
             <div>
                 <!-- <form action="" method="GET"> -->
-                    <input class="p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
+                    <input class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
                         placeholder="Search" type="text">
                 <!-- </form> -->
             </div>

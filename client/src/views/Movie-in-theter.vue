@@ -3,13 +3,15 @@
 import CardItem from "../components/CardItem.vue"
 import Movieintheater from "../components/movieintheater.vue";
 import Movies from '../mockup/movies.json';
+import Showtimes from '../components/showtime.vue';
 
 export default {
     name: "App",
     components: {
-    CardItem,
-    Movieintheater
-},
+        CardItem,
+        Movieintheater,
+        Showtimes
+    },
     data() {
         return {
             movies: []
@@ -36,11 +38,17 @@ export default {
             <Button class="p-button-text mr-5 text-3xl" label="NowShowing" />
             <Button class="p-button-text text-3xl" label="Coming Soon" />
         </div>
-        <div id=bg3>
-            <div class="row-3" v-for="movie in movies" :key="movie.id" id=bg1>
-                <Movieintheater class="cursor-pointer" :name="movie.name" :date="movie.date" :image="movie.image" id="card"
-                    @click="navigateInfo(movie.id)">
+        <div class="" id=bg3>
+            <div class="row" v-for="movie in movies" :key="movie.id" id=bg1>
+                <div class="grid">
+                </div>
+                <Movieintheater class="cursor-pointer" :image="movie.image" :name="movie.name" :category="movie.category"
+                    :time="movie.time" id="card" @click="navigateInfo(movie.id)">
                 </Movieintheater>
+                <div>
+                    <Showtimes :theater="movie.theater" :showtime="movie.showtime">
+                    </Showtimes>
+                </div>
             </div>
         </div>
     </div>

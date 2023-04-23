@@ -36,11 +36,9 @@
 <script>
 import CardItem from "../components/CardItem.vue"
 import Cardsum from "../components/Cardsum.vue";
-import Daybutton from "../components/Daybutton.vue";
 export default {
     components: {
         CardItem,
-        Daybutton,
         Cardsum
     },
     methods: {
