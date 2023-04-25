@@ -50,24 +50,28 @@ export default {
 </script>
 
 <template>
-    <div class="grid mt-5 px-5">
-        <div class="col-3" style="width: 20rem">
-            <img :src="this.movie.image" style="height: 400px" class="border-round-xl">
-        </div>
-        <div class=" p-5 text-xl">
-            <p> {{ this.movie.date }} </p>
-            <div class="mt-5 text-2xl">
-                <h5>{{ this.movie.name }}</h5>
+    <div class="grid">
+        <div class="flex col-8 mt-5 px-5">
+            <div class="" style="width: 20rem">
+                <img :src="this.movie.image" style="height: 400px" class="border-round-xl">
             </div>
-            <div class="mt-8">
-                <Button class="p-button-outlined" label="จองรอบฉาย" @click="goBooking()" />
+            <div class=" p-5 text-xl">
+                <p> {{ this.movie.date }} </p>
+                <div class="mt-5 text-2xl">
+                    <h5>{{ this.movie.name }}</h5>
+                </div>
+                <div class="mt-8">
+                    <Button class="p-button-outlined" label="จองรอบฉาย" @click="goBooking()" />
+                </div>
             </div>
-        </div>
-        <div class="flex justify-content-end flex-wrap">
-            <iframe width="800" height="450" :src="this.movie.trailer" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-            </iframe>
+            <div class="flex col-4">
+                <div class="flex justify-content-end flex-wrap">
+                    <iframe width="500" height="300" :src="this.movie.trailer" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
     </div>
     <div class="mt-5 px-5">

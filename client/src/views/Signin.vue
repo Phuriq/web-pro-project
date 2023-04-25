@@ -15,13 +15,13 @@ import CardItem from "../components/CardItem.vue"
             <template #content>
                 <div class="flex flex-column">
                     <h5>Username</h5>
-                    <InputText type="text" v-model="value1" />
+                    <InputText type="text" />
                     <h5 class="mt-5">Passwordㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
                         <router-link to="/forgot">
                         <span class="text-pink-100">Forgot password?</span>
                     </router-link>
                     </h5>
-                    <InputText type="password" v-model="value1" />
+                    <InputText type="password" />
                 </div>
                 <router-link to="/home">
                 <div class="flex flex-column">

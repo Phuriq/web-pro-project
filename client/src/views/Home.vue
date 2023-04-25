@@ -40,31 +40,33 @@ export default {
 </script>
 
 <template>
-    <div id="bg-gradient"></div>
-    <div class="nav">
-    </div>
-    <Carousel :value="movies_show" :numVisible="1" :numScroll="1" :autoplayInterval="4000"
-        class="flex justify-content-center mt-3">
-        <template #item="movies_show">
-            <div class="flex justify-content-center" style="height: 280px" v-for="movie in movies_show">
-                <img :src="movie.name" style="height: 550px">
-            </div>
-        </template>
-    </Carousel>
-    <div id=bg2 class="flex justify-content-between w-full  p-5">
-        <div>
-            <Button id=button @click="filterTag('Now')" label="กำลังฉาย" class="p-button-text text-xl ml-4" />
-            <Button id=button @click="filterTag('Action')" label="ACTION" class="p-button-text text-xl ml-4" />
-            <Button id=button @click="filterTag('Comedy')" label="COMEDY" class="p-button-text text-xl ml-4" />
-            <Button id=button @click="filterTag('Horror')" label="HORROR" class="p-button-text text-xl ml-4" />
-            <Button id=button @click="filterTag('Romantic')" label="ROMANTIC" class="p-button-text text-xl ml-4" />
+    <div class="fadeinleft animation-duration-200">
+        <div id="bg-gradient"></div>
+        <div class="nav">
         </div>
-    </div>
-    <div class="grid p-3" id=bg3>
-        <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
-            <CardItem class="cursor-pointer" :name="movie.name" :date="movie.date" :image="movie.image" id="card"
-                @click="navigateInfo(movie.id)">
-            </CardItem>
+        <Carousel :value="movies_show" :numVisible="1" :numScroll="1" :autoplayInterval="4000"
+            class="flex justify-content-center mt-3">
+            <template #item="movies_show">
+                <div class="flex justify-content-center" style="height: 280px" v-for="movie in movies_show">
+                    <img :src="movie.name" style="height: 550px">
+                </div>
+            </template>
+        </Carousel>
+        <div id=bg2 class="flex justify-content-between w-full  p-5">
+            <div>
+                <Button id=button @click="filterTag('Now')" label="กำลังฉาย" class="p-button-text text-xl ml-4" />
+                <Button id=button @click="filterTag('Action')" label="ACTION" class="p-button-text text-xl ml-4" />
+                <Button id=button @click="filterTag('Comedy')" label="COMEDY" class="p-button-text text-xl ml-4" />
+                <Button id=button @click="filterTag('Horror')" label="HORROR" class="p-button-text text-xl ml-4" />
+                <Button id=button @click="filterTag('Romantic')" label="ROMANTIC" class="p-button-text text-xl ml-4" />
+            </div>
+        </div>
+        <div class="grid p-3" id=bg3>
+            <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
+                <CardItem class="cursor-pointer" :name="movie.name" :date="movie.date" :image="movie.image" id="card"
+                    @click="navigateInfo(movie.id)">
+                </CardItem>
+            </div>
         </div>
     </div>
 </template>

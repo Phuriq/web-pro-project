@@ -13,20 +13,56 @@
             </router-link>
         </div>
         <div class="flex align-content-center h-full">
-            <div>
+            <div class="flex align-self-center">
                 <!-- <form action="" method="GET"> -->
-                    <input class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
-                        placeholder="Search" type="text">
+                <input
+                    class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
+                    placeholder="Search" type="text">
                 <!-- </form> -->
             </div>
-            <p class="align-self-center"> kstandforkyu </p>
-            <Avatar label="K" class="align-self-center mx-4" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+            <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
+                style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
+                <div class="card flex justify-content-center">
+                    <Avatar label="K" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" class="align-self-center mx-4"
+                    style="background-color:#2196F3; color: #ffffff" shape="circle"/>
+                    <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
+                    <Toast />
+                </div>
         </div>
     </div>
 </template>
 <script>
 export default {
+    data() {
+        return {
+            items: [
+                {
+                    label: 'Kstandforkyu',
+                    items: [
+                        {
+                            label: 'Logout',
+                            icon: 'pi pi-sign-out',
+                            url: '/signin'
+                        },
+                        {
+                            label: 'My ticket',
+                            icon: 'pi pi-ticket',
+                        }
+                    ]
+                },
+            ]
+        };
+    },
+    methods: {
+        toggle(event) {
+            this.$refs.menu.toggle(event);
+        },
+        save() {
+            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+        }
+    },
 };
+
 </script>
 
 <style>

@@ -55,6 +55,9 @@ export default {
             return arr.filter(function (ele) {
                 return ele != value;
             });
+        },
+        goCheckout: function () {
+            this.$router.push('/checkout/' + this.id)
         }
     },
     mounted() {
@@ -187,9 +190,9 @@ h1:hover {
                         <h5 class="text-xl mt-1">{{ this.movie.name }}</h5>
                         <h4 class="text-sm mt-1 text-yellow-200">ราคา : {{ seat.length * 240 }} บาท ที่นั่ง : {{ seat }}
                         </h4>
-                        <router-link to="/checkout">
-                            <Button class="flex flex-column mt-5" label="KYU" style="width: 260px" />
-                        </router-link>
+                        <div>
+                            <Button class="flex flex-column mt-5" label="KYU" style="width: 260px" @click="goCheckout()"/>
+                        </div>
                     </template>
                 </Card>
             </div>

@@ -18,6 +18,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: '/',
+      component: () => import('../views/Signin.vue')
+    },
+    {
       path: '/signin',
       name: 'signin',
       component: () => import('../views/Signin.vue')
@@ -60,9 +65,10 @@ const router = createRouter({
       props: true,
     },
     {
-      path: '/checkout',
+      path: '/checkout/:id',
       name: 'checkout',
-      component: () => import('../views/Checkout.vue')
+      component: () => import('../views/Checkout.vue'),
+      props: true,
     },
     {
       path: '/movieintheater',
