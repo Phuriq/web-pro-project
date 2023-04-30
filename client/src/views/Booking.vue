@@ -2,6 +2,8 @@
 import CardItem from "../components/CardItem.vue"
 import Cardsum from "../components/Cardsum.vue";
 import Movies from '../mockup/movies.json';
+import Showtimes from '../components/showtime.vue';
+
 
 export default {
     name: "Booking",
@@ -24,7 +26,8 @@ export default {
     },
     components: {
         CardItem,
-        Cardsum
+        Cardsum,
+        Showtimes
     },
     methods: {
         formatDate(dateString) {
@@ -68,11 +71,11 @@ export default {
 
 <style>
 .customdate {
-    width: 165px;
+    width: 80px;
     height: 70px;
     border-width: 5px;
     border-radius: 8px;
-    background-image: linear-gradient(to bottom right, #000000, #2F4F4F, #8FBC8F);
+    background-image: linear-gradient(to bottom right, #2F4F4F, #8FBC8F);
 }
 
 .isSelected {
@@ -124,7 +127,7 @@ h1:hover {
                 <Button label="ชำระเงิน" class="p-button-text text-xl ml-4" />
             </div>
         </div>
-        <div class="mt-5 grid mb-5">
+        <div class="mt-5 grid mr-8">
             <div class="col flex justify-content-center">
                 <div class="customdate isSelected flex align-items-center justify-content-center pt-2 m-3 "
                     v-for="date in 7">
@@ -132,7 +135,13 @@ h1:hover {
                 </div>
             </div>
         </div>
-        <div class="grid">
+        <div class="flex mx-8 pl-8">
+            <div>
+                <Showtimes :theater="movie.theater" :showtime="movie.showtime">
+                </Showtimes>
+            </div>
+        </div>
+        <div class="grid mt-8">
             <div class="col-8">
                 <div class="flex justify-content-center align-content-center">
                     <h2> {{ this.row[5] }}</h2>
@@ -191,7 +200,7 @@ h1:hover {
                         <h4 class="text-sm mt-1 text-yellow-200">ราคา : {{ seat.length * 240 }} บาท ที่นั่ง : {{ seat }}
                         </h4>
                         <div>
-                            <Button class="flex flex-column mt-5" label="KYU" style="width: 260px" @click="goCheckout()"/>
+                            <Button class="flex flex-column mt-5" label="KYU" style="width: 260px" @click="goCheckout()" />
                         </div>
                     </template>
                 </Card>
