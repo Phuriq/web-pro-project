@@ -1,58 +1,44 @@
-<template>
-    <div class ="cards">
-    <CardItem>
-        
-    </CardItem></div>
-    <div class ="cards1">
-    <CardItem>
-        
-    </CardItem></div>
-    <div class ="cards2">
-    <CardItem>
-        
-    </CardItem></div>
-    <div class ="cards3 ">
-    <CardItem>
-        
-    </CardItem></div>
-
-</template>
-
 <script>
 import CardItem from "../components/CardItem.vue"
-
-export default{
-    components:{
-        CardItem,
+import Movies from '../mockup/movies.json';
+export default {
+  name: "App",
+  components: {
+    CardItem,
+  },
+  data() {
+    return {
+      movies: []
+    };
+  },
+  mounted() {
+    this.movies = Movies
+  },
+  methods: {
+    filterTag(tag) {
+      console.log(tag)
     },
-    name: "App",
-
-    data() {
-        return {};
-    },
-    methods: {},
+    navigateInfo(id) {
+      this.$router.push('/movieinfo/' + id)
+    }
+  },
 };
 </script>
-<style>
-.cards {
-  display: flex;
-  margin-top: 320px;
-  margin-left: 20px;
-}
-.cards1 {
-  display: flex;
-  margin-top: -400px;
-  margin-left: 400px;
-}
-.cards2 {
-  display: flex;
-  margin-top: -400px;
-  margin-left: 800px;
-}
-.cards3 {
-  display: flex;
-  margin-top: -400px;
-  margin-left: 1200px;
-}
 
-</style>
+<template>
+  <div class="fadeinleft animation-duration-200">
+    <div class="flex justify-content-center mt-5 mb-5">
+      <Button class="p-button-text mr-5 text-3xl" label="NowShowing" />
+      <Button class="p-button-text text-3xl" label="Coming Soon" />
+    </div>
+    <div class="grid p-3" id=bg3>
+      <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
+        <CardItem class="cursor-pointer" :name="movie.name" :date="movie.date" :image="movie.image" id="card"
+          @click="navigateInfo(movie.id)">
+        </CardItem>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style></style>

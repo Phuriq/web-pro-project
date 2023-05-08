@@ -1,5 +1,5 @@
 <template>
     <div>
-        ควย
+        So sit to realize
     </div>
 </template>

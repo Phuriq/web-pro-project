@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "ยอดนักสืบจิ๋วโคนัน จุดเริ่มต้นของไฮบาระ ไอ",
+        "date": "01 March 2023",
+        "time": "90 นาที",
+        "category": "Animation",
+        "image": "https://media.discordapp.net/attachments/944864017460101151/1080506814505963530/image.png?width=487&height=702",
+        "title": "มิยาโนะ ชิโฮะ นักวิทยาศาสตร์และสมาชิกขององค์กรชุดดำที่มีโค้ดเนมว่า เชอร์รี่ ได้พัฒนายาพิษลึกลับ APTX (Apotoxin) 4869 ยาที่ทำให้ คุโด้ ชินอิจิ กลายเป็นเด็ก! อย่างไรก็ตาม เมื่อเชอร์รี่รู้ว่าองค์กรชุดดำได้สังหาร มิยาโนะ อาเคมิ พี่สาวของเธอ เธอจึงทรยศต่อองค์กรและ กินยา APTX4869 เธอจึงกลายเป็นเด็กเพราะฤทธิ์ของยา และตอนนี้เธอเรียกตัวเองว่า ไฮบาระ ไอ และได้ปกปิดซ่อนตัวเองเอาไว้",
+        "trailer": "https://www.youtube.com/embed/20IzuxuMO60",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 2,
+        "name": "CREED III",
+        "date": "02 March 2023",
+        "time": "116 นาที",
+        "category": "Action",
+        "image": "https://media.discordapp.net/attachments/944864017460101151/1080506883753910342/image.png?width=473&height=702",
+        "title": "ผลงานจาก Metro Goldwyn Mayer Pictures สู่ “Creed III” กับ ไมเคิล บี. จอร์แดน ผู้ผันตัวมารับหน้าที่กำกับภาพยนตร์ และกลับมารับหน้าบทบาท อโดนิว ครีด ในภาคต่อลำดับที่สามของแฟรนไชส์ดัง ภาพยนตร์ร่วมแสดงโดย เทสซา ธอมป์สัน",
+        "trailer": "https://youtu.be/embed/iegzuFPmH0c",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 3,
+        "name": "Kamen rider Geats x Revice movie battle royale",
+        "date": "06 April 2023",
+        "time": "0 นาที",
+        "category": "Comming soon",
+        "image": "https://media.discordapp.net/attachments/944864017460101151/1080508754241527889/image.png?width=452&height=702",
+        "title": "การต่อสู้แบบแบบแบทเทิลรอยัลกีทส์ต้องร่วมมือกับรีไวซ์ เพื่อหยุดยั้งความชั่วร้ายบางอย่าง ซึ่งในเกมที่ว่านี้ก็จะมีเหล่าไรเดอร์จากมาสค์ไรเดอร์ริวคิ อย่าง ริวคิ,ริวงะ,ไนท์ และ โอจา มาร่วมแจมด้วย!! ใครจะได้รับชัยชนะเมื่อสิ้นสุดการต่อสู้ที่ดุเดือดนี้ และความปรารถนาที่จะมอบให้กับผู้ชนะคืออะไร?",
+        "trailer": "https://www.youtube.com/watch?v=ODtCNoMrTRU",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 4,
+        "name": "จอห์น วิค แรงกว่านรก 4",
+        "date": "22 March 2023",
+        "time": "169 นาที",
+        "category": "Action",
+        "image": "https://s359.kapook.com/r/600/auto/pagebuilder/bc4b7d45-33c3-486b-9047-16a4f8686ace.jpg",
+        "title": "John Wick Chapter 4 พาผู้ชมไปสู่จักรวาลนักฆ่าที่ถูกขยายขอบเขตยิ่งกว่าเดิม หลักจากที่ จอห์น วิค (คีอานู รีฟส์) เอาตัวรอดจากนักฆ่าและการตามล่าจากสภาสูงมาได้ เขาได้ค้นพบว่าหนทางรอดเดียวที่จะทำให้ชีวิตเขาเป็นอิสระ คือการต้องกลับมาเผชิญหน้ากับชะตากรรมที่รอเขาอยู่และเป้าหมายเดียวคือต้องโค่นสภาสูงให้สำเร็จ โดยครั้งนี้เขาต้องรับมือกับศัตรูอำมหิตรายใหม่ที่มีอิทธิพลกว้างขวางไปทั่ววงศ์วานนักฆ่าทั้งโลก ผู้พร้อมจะเปลี่ยนมิตรให้กลายเป็นศัตรู เปลี่ยนลมหายใจให้กลายเป็นร่างไร้วิญญาณ เปิดฉากการตามล่าครั้งใหม่ที่กินอาณาเขตแค้นไปถึง 3 ทวีป ทั้งในนิวยอร์ก ปารีส เบอร์ลิน และโอซาก้า",
+        "trailer": "https://www.youtube.com/watch?v=NemPTW_VaF0",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 5,
+        "name": "ชินจัง เดอะมูฟวี่ ปริศนา บุปผาแห่งโรงเรียนเทนคะ",
+        "date": "09 March 2023",
+        "time": "104 นาที",
+        "category": "Animation",
+        "image": "https://lh3.googleusercontent.com/3CPH2f6L3pO9JYKLh9p8X8HUkweo22rcB-2LHTMqSFgCID_GkgHNyiT9RsQto2pPLgIZvoTgS0r5Kxh28YzqsrOE34AEV3jV=s0",
+        "title": "The film's story begins with Shinnosuke and his friends of Kasukabe Defence Force experiencing a one-week stay in Tenkatōitsu Kasukabe Private Academy (nicknamed Tenkazu), an elite boarding school that is administrated by a state-of-the-art AI, Otsmun. All the students are given a badge initially with 1000 points and their points are increased/decreased by Otsmun based on their behaviors and academic performance. In there someone attacks Kazama. As a result, his intelligence is reduced, and strange bite marks are left on his butt. The Kasukabe Defense Force joins forces with the school's dropout student council president Chishio Atsuki, who was a former athlete, to form a group of detectives and solve the mystery.",
+        "trailer": "https://www.youtube.com/watch?v=DlggFlwn5yM",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 6,
+        "name": "เดอะ เฟิสต์ สแลมดังก์",
+        "date": "09 March 2023",
+        "time": "125 นาที",
+        "category": "Animation",
+        "image": "https://upload.wikimedia.org/wikipedia/en/a/ac/The_First_Slam_Dunk_Poster.jpg",
+        "title": "มิยางิ เรียวตะ พอยต์การ์ดจ่ายความเร็วสูงของโชโฮคุ ที่มักจะเล่นด้วยมันสมองและความเร็วปานสายฟ้าแลบ ปั่นป่วนคู่ต่อสู้ด้วยความสุขุมรอบคอบ เรียวตะเกิดและเติบโตในโอกินาว่า มีพี่ชายที่แก่กว่าสามปี และได้ตามรอยพี่ชายของเขาซึ่งเป็นผู้เล่นท้องถิ่นที่มีชื่อเสียงตั้งแต่อายุยังน้อย เช่นเดียวกับพี่ชาย เรียวตะ ก็ชื่นชอบบาสเก็ตบอลเช่นกัน ในชั้นมัธยมศึกษาปีที่ 2 เรียวตะได้ร่วมทีมบาสเก็ตบอลของโรงเรียนมัธยมโชโฮคุ ร่วมกับซากุรางิ รุคาว่า อาคางิ และมิตซุย ขณะที่พวกเขาเข้าร่วมในการแข่งขันชิงแชมป์แห่งชาติระหว่างโรงเรียนมัธยมปลาย และตอนนี้พวกเขากำลังจะท้าทายแชมป์เก่าอย่างโรงเรียนเทคโนซังโน",
+        "trailer": "https://www.youtube.com/watch?v=lqLzKMwfq_U",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 7,
+        "name": "ขุนพันธ์ 3",
+        "date": "01 March 2023",
+        "time": "156 นาที",
+        "category": "Action",
+        "image": "https://lh3.googleusercontent.com/bKYlKeibD5y3RkM3_JqJBkOnf0yJTdp_gLqGufGOLviMhug_xLMKwUH5nOwPb-GUgIHSjeG2GDZvGr7K_J5B9BWzMGbp7yTwGg=w260",
+        "title": "สหมงคลฟิล์มฯ ออกประกาศหมายจับตายของสองเสือแห่งภาคกลาง เสือมเหศวร และ เสือดำ ที่เป็นคาแรกเตอร์เด่นในขุนพันธ์ภาค3นี้ โดย “เสือมเหศวร” จอมโจรร้อยหน้า รับบทโดยนักแสดงมากความสามารถ มาริโอ้ เมาเร่อ และ “เสือดำ” สุภาพบุรุษจอมโจร รับบทโดยหนุ่มมาดเท่ โตโน่-ภาคิน คำวิลัยศักดิ์ เป็นการตอกย้ำถึงความเป็นภาพยนตร์ฟอร์มยักษ์ที่ได้สองนักแสดงมากฝีมือมารับบทสองโจร ในช่วงเวลาที่ประเทศไทยกำลังระส่ำระสายจากเหตุการณ์ต่างๆ ในช่วงหลังสงครามโลกครั้งที่สอง และครั้งนี้ก็ยังคงเป็นภารกิจสุดมันส์ของ “ขุนพันธ์” ที่รับบทโดย อนันดา เอเวอริงแฮม  ต้องกลับมาล่าหัว “มหาโจร” อีกครั้ง โดยมีบ้านเมืองเป็นเดิมพัน ภารกิจสุดขลังของมือปราบคงกระพันจะทวีความมันส์ขึ้นจากภาคก่อนขนาดไหน ผู้ชมชาวไทยรอติดตาม พร้อมกัน 2 มีนาคม 2566 ในโรงภาพยนตร์",
+        "trailer": "https://www.youtube.com/watch?v=07UckMY4Pbo",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 8,
+        "name": "แอนท์-แมน และ เดอะ วอสพ์ ตะลุยมิติควอนตัม",
+        "date": "15 February 2023",
+        "time": "125 นาที",
+        "category": "Action",
+        "image": "https://lumiere-a.akamaihd.net/v1/images/image_e8b53b1f.jpeg?region=0,0,540,810",
+        "title": "คู่หูซูเปอร์ฮีโร่ สก็อตต์ แลง (พอล รัดด์) และ โฮป แวน ไดน์ (อีแวนเจลีน ลิลลี่) หวนคืนสู่การผจญอีกครั้งในฐานะ แอนท์-แมน และ เดอะ วอสพ์ พวกเขาต้องร่วมมือกับพ่อแม่ของโฮป แฮงค์ พิม (ไมเคิล ดักลาส) และ เจเน็ต แวน ไดน์ (มิเชลล์ ไฟฟ์เฟอร์) และลูกสาวของสก็อตต์ แคสซี่ แลง (แคทริน นิวตัน) การร่วมมือกันครั้งนี้ทำให้พวกเขาได้เข้าไปสำรวจมิติควอนตัม พบเจอกับสิ่งมีชีวิตใหม่ ๆ สุดแปลก และ ร่วมหัวจมท้ายไปในการผจญภัยที่จะผลักดันพวกเขาไปจนเหนือขีดจำกัดที่คิดว่าจะทำได้ กำกับโดย เพย์ตัน รีด อำนวยการสร้างโดย เควิน ไฟกีและ สตีเฟ่น บรูซาร์ด “แอนท์-แมน และเดอะ วอสพ์: ตะลุยมิติควอนตัม” ยังได้โจนาธาน เมเจอร์ส มาร่วมแสดงเป็น แคง เดวิด แดสท์มัลแชน เป็น เว็บ เคที โอไบรอัน เป็น เจนทอร์รา วิลเลียม แจ็กสัน ฮาร์เปอร์ เป็น ควาซ และ บิลล์ เมอร์เรย์ เป็น ลอร์ดไครลาร์ ภาพยนตร์การผจญเหนือจินตนาการจะฉายในวันที่ 15 กุมภาพันธ์ในโรงภาพยนตร์",
+        "trailer": "https://www.youtube.com/watch?v=V4e_VCU00mE",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 9,
+        "name": "เสิร์ชหา...แม่หาย!?",
+        "date": "01 March 2023",
+        "time": "111 นาที",
+        "category": "thrillerl",
+        "image": "https://www.khaosod.co.th/wpapp/uploads/2023/02/ent10p1-8.jpg",
+        "title": "จากทีมงานผู้สร้าง Searching... ภาพยนตร์เรื่อง Missing เสิร์ชหา...แม่หาย!? ปริศนาลุ้นระทึก ที่ทาให้คุณสงสัยว่าคุณรู้จักคนใกล้ชิดที่สุดกับคุณดีแค่ไหน ในระหว่างที่แม่ของเธอ (นีอา ลอง) หายตัวไประหว่างเที่ยวพักผ่อนในโคลอมเบียกับแฟนใหม่ การค้นหาคาตอบและตามหาแม่ของจูน (สตอร์ม รี้ด) นั้นไม่ง่ายเลย ด้วยความที่เธออยู่ในลอสแอนเจลิสที่ห่างไกลจากประเทศที่แม่ไปเที่ยว จูนจึงต้องใช้เทคโนโลยีใหม่ต่างๆ นาๆ เพื่อพยายามหาตัวแม่ให้พบก่อนทุกอย่างจะสายเกินไป การสืบเสาะหาร่องรอยบนโลกดิจิตอลของเธอนาไปสู่ ความลับสุดระทึกและเรื่องหลอกลวงที่สุดจะคาดเดา",
+        "trailer": "https://www.youtube.com/watch?v=mnjMrtGctb4",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    },
+    {
+        "id": 10,
+        "name": "ดาบพิฆาตอสูร สู่หมู่บ้านช่างตีดาบ",
+        "date": "23 February 2023",
+        "time": "110 นาที",
+        "category": "Action",
+        "image": "https://lh3.googleusercontent.com/T5wRaYd8r45DDG_Y5ZvbV9N0g92wuRRuLJ1SzWn8khwUWJxaaafJwHXdk9WfUlIYatxtvfBV8GvZ1X6dty2MP1_w8PQF38gsQg=s0",
+        "title": "อสูรระดับสูงทั้งหมดหกตัวมารวมตัวกันที่ Infinity Castle หลังจากที่อสูรหกตัวก่อนหน้านี้พ่ายแพ้ไป",
+        "trailer": "https://www.youtube.com/watch?v=AkZD__uvfjU",
+        "theater": "theater 1",
+        "showtime": "16:00"
+    }
+]
