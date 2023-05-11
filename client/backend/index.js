@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   "/api",
   router.use("/user", user),
-  router.use("/signup", user),
 
 );
 
