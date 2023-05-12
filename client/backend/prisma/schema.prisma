@@ -19,7 +19,7 @@ model User {
 model Movie {
   id               Int          @id @default(autoincrement())
   movieName        String
-  movieReleaseDate DateTime
+  movieReleaseDate String
   movieHour        Int
   movieTitle       String
   rounds           Round[]
