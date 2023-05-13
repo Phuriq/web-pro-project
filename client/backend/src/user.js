@@ -14,6 +14,14 @@ import process from 'process';
 //         },
 //     });
 // };
+const findName = async (userName) => {
+    return await prisma.User.findUnique({
+        where: {
+            userName: userName
+        
+        },
+    });
+};
 
 
 router.post('/signup', async(req, res) => {
@@ -45,14 +53,6 @@ router.post('/signup', async(req, res) => {
     }
     });
 
-    const findName = async (userName) => {
-        return await prisma.User.findUnique({
-            where: {
-                userName: userName
-            
-            },
-        });
-    };
     
     router.post("/signin", async (req, res) => {
         try{
