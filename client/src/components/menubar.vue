@@ -36,10 +36,11 @@
 export default {
     data() {
         return {
-            userName: localStorage.getItem("user"),
+            userName: localStorage.getItem(this.user),
             items: [
                 {
-                    label: localStorage.getItem("user").replace(/"/g, ''),
+                    label: localStorage.getItem(this.user)//.replace(/"/g, '')//'
+                    ,
                     items: [
                         {
                             label: 'My ticket',
@@ -47,8 +48,12 @@ export default {
                         },
                         {
                             label: 'Logout',
+                            command: () => {
+                                localStorage.removeItem("accessToken");
+                                localStorage.removeItem("user");
+                                this.$router.push("/signin");
+                            },
                             icon: 'pi pi-sign-out',
-                            url: '/signin'
                         },
                     ]
                 },
@@ -61,7 +66,12 @@ export default {
         },
         save() {
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
-        }
+        },
+        logout() {
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("user");
+            this.$router.push("/signin");
+        },
     },
 };
 
