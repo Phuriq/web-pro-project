@@ -1,6 +1,6 @@
 <script>
 import CardItem from "../components/CardItem.vue"
-import axios from 'axios'
+import axios from "../service/axios"
 
 export default {
   data() {

@@ -20,9 +20,14 @@ model Movie {
   id               Int          @id @default(autoincrement())
   movieName        String
   movieReleaseDate String
-  movieHour        Int
+  movieHour        String
   movieTitle       String
   rounds           Round[]
+  movieCategory    String
+  movieImage       String
+  movieTrailer    String
+  movieTheater    String
+  showtime        String
 }
 
 model Theater {
