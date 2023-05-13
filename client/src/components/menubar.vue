@@ -22,13 +22,13 @@
             </div>
             <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
                 style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
-                <div class="card flex justify-content-center">
-                    <Avatar label="K"  @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" 
-                    class="align-self-center cursor-pointer mx-4 hover"
-                    style="background-color:#2196F3; color: #ffffff" shape="circle"/>
-                    <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
-                    <Toast />
-                </div>
+            <div class="card flex justify-content-center">
+                <Avatar label="Kiw2" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
+                    class="align-self-center cursor-pointer mx-4 hover" style="background-color:#2196F3; color: #ffffff"
+                    shape="circle" />
+                <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
+                <Toast />
+            </div>
         </div>
     </div>
 </template>
@@ -36,9 +36,10 @@
 export default {
     data() {
         return {
+            userName: localStorage.getItem("user"),
             items: [
                 {
-                    label: 'Kstandforkyu',
+                    label: localStorage.getItem("user").replace(/"/g, ''),
                     items: [
                         {
                             label: 'My ticket',
