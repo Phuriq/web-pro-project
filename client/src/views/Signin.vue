@@ -1,11 +1,11 @@
 <script>
 import CardItem from "../components/CardItem.vue"
-import axios from "../service/axios"
+import axios from "axios"
 
 export default {
   data() {
     return {
-      username: '',
+      userName: localStorage.getItem("user"),
       password: ''
     }
   },
@@ -17,7 +17,8 @@ export default {
           userPassword: this.password
         })
         localStorage.setItem('accessToken', response.data.accessToken)
-        localStorage.setItem("user", JSON.stringify(response.data.user));
+        localStorage.setItem("user", JSON.stringify(response.data.User.userName));
+        console.log(response)
         this.$router.push('/home')
       } catch (error) {
         alert(error.response.data.message)
