@@ -15,9 +15,14 @@ CREATE TABLE `User` (
 CREATE TABLE `Movie` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `movieName` VARCHAR(191) NOT NULL,
-    `movieReleaseDate` DATETIME(3) NOT NULL,
-    `movieHour` INTEGER NOT NULL,
-    `movieTitle` VARCHAR(191) NOT NULL,
+    `movieReleaseDate` VARCHAR(191) NOT NULL,
+    `movieHour` VARCHAR(191) NOT NULL,
+    `movieTitle` TEXT NOT NULL,
+    `movieCategory` VARCHAR(191) NULL,
+    `movieImage` VARCHAR(191) NULL,
+    `movieTrailer` VARCHAR(191) NULL,
+    `movieTheater` VARCHAR(191) NULL,
+    `showtime` VARCHAR(191) NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
