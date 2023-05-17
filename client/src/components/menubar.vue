@@ -36,10 +36,10 @@
 export default {
     data() {
         return {
-            userName: localStorage.getItem(this.user),
+            userName: localStorage.getItem("user"),
             items: [
                 {
-                    label: localStorage.getItem(this.user)//.replace(/"/g, '')//'
+                    label: localStorage.getItem("user")//.replace(/"/g, '')//'
                     ,
                     items: [
                         {
