@@ -61,7 +61,7 @@ export default {
 </script>
 
 <template>
-    <div class="grid">
+    <div class="grid fadeinleft animation-duration-200">
         <div class="flex col-8 mt-5 px-5">
             <div class="" style="width: 20rem">
                 <img :src="movies.movieImage" style="height: 400px" class="border-round-xl">

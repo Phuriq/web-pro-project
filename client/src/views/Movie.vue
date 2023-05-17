@@ -52,4 +52,8 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style>
+body {
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,42,20,1) 92%, rgba(0,0,0,1) 100%);
+}
+</style>

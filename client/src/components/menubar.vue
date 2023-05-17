@@ -1,7 +1,7 @@
 <template>
     <div id=grad1 class="flex align-items-center justify-content-between w-full bg-gray-900 p-2">
         <div class="flex align-items-center">
-            <Avatar label="P" class="align-self-center" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+            <img alt="logo" src="https://media.discordapp.net/attachments/895540915714789417/1108411563053948949/Screenshot_2566-05-17_at_22.10.55-removebg-preview.png?width=1256&height=388" height="40" class="mr-2" />
             <router-link to="/home">
                 <Button label="Home" class="p-button-text ml-5" id=button />
             </router-link>
@@ -17,14 +17,14 @@
                 <!-- <form action="" method="GET"> -->
                 <input
                     class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
-                    placeholder="Search" type="text">
+                    placeholder="ค้นหาภาพยนต์" type="text">
                 <!-- </form> -->
             </div>
             <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
                 style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
             <div class="card flex justify-content-center">
                 <Avatar label="user" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
-                    class="align-self-center cursor-pointer mx-4 hover" style="background-color:#2196F3; color: #ffffff"
+                    class="align-self-center cursor-pointer mx-4 hover" style="background-color:#0f7a07; color: #ffffff"
                     shape="circle" />
                 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
                 <Toast />
@@ -45,6 +45,7 @@ export default {
                         {
                             label: 'My ticket',
                             icon: 'pi pi-ticket',
+                            url: '/myticket'
                         },
                         {
                             label: 'Logout',
@@ -79,7 +80,7 @@ export default {
 
 <style>
 #grad1 {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(8,79,38,1) 92%, rgba(0,0,0,1) 100%);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(8,79,38,1) 92%, rgba(0,0,0,1) 100%);
 }
 
 #button:hover {

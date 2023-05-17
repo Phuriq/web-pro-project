@@ -128,18 +128,26 @@ h1:hover {
 </style>
 
 <template>
-    <div class="bg-black container">
-        <div class="grid mt-5 px-5 mb-4">
-            <div class="col-3" style="width: 20rem">
-                <img :src="this.movies.movieImage" style="height: 400px" class="border-round-xl">
-            </div>
-            <div class="ml-6 p-5 text-xl mt-8">
-                <p>{{ this.movies.movieReleaseDate }}</p>
-                <div class="mt-8 text-2xl">
-                    <h5>{{ this.movies.movieName }}</h5>
+    <div class="bg-black container fadeinleft animation-duration-200">
+            <div class="flex col-8 mt-5 px-5">
+                <div class="" style="width: 20rem">
+                    <img :src="movies.movieImage" style="height: 400px" class="border-round-xl">
+                </div>
+                <div class=" p-5 text-xl">
+                    <p> {{ movies.movieReleaseDate }} </p>
+                    <div class="mt-5 text-2xl">
+                        <h5>{{ movies.movieName }}</h5>
+                    </div>
+                </div>
+                <div class="flex col-4">
+                    <div class="flex justify-content-end flex-wrap ml-8">
+                        <iframe width="500" height="300" :src="movies.movieTrailer" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
             </div>
-        </div>
         <div class="flex justify-content-between w-full bg-gray-800 p-1">
             <div>
                 <Button label="เลือกวัน" class="p-button-text text-xl ml-4" />

@@ -20,7 +20,7 @@ export default {
                 },
                 {
                     title: "zxc",
-                    name: 'https://media.newsplus.co.th/2021/07/cover-tvoff-download-1200x675.jpg',
+                    name: 'https://www.fungjaizine.com/wp-content/uploads/2018/07/slurcover02.jpg',
                 }
             ],
         }
@@ -88,15 +88,18 @@ export default {
 }
 
 body {
-    background-image: linear-gradient(to bottom right, #000000, #2b1b23, #041106)
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,42,20,1) 92%, rgba(0,0,0,1) 100%);
+
 }
 
 #bg2 {
-    background-image: linear-gradient(to bottom right, #140613, #180c13, #2b0826)
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,42,20,1) 92%, rgba(0,0,0,1) 100%);
+
 }
 
 #bg3 {
-    background-image: linear-gradient(to bottom right, rgb(0, 0, 0), #1f071b, #000000)
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,42,20,1) 92%, rgba(0,0,0,1) 100%);
+
 }
 
 #button:hover {
