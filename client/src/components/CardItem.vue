@@ -6,18 +6,22 @@ export default {
         "date",
         "image",
         "title",
-        "trailer"
+        "trailer",
+        "category"
     ]
 }
 </script>
 
 <template>
     <div>
-        <Card id=card-bg class="flex flex-column surface-ground border-round-2xl" style="height: 550px; width: 300px ">
+        <Card id=card-bg class="flex flex-column align-items-center surface-ground border-round-2xl" style="height: 595px; width: 275px ">
             <template #content>
-                <img :src="image" style="height: 400px" class="border-round-xl" />
+                <div>
+                <img :src="image" style="height: 400px; width: 250px" class="border-round-xl" />
                 <h5 class="text-green-400 mt-2">{{ date }}</h5>
-                <h4 class="text-xl mt-3">{{ name }}</h4>
+                <h4 class="mt-3">{{ name }}</h4>
+                <h3 class="mt-3 ">{{ category }}</h3>
+                </div>
             </template>
         </Card>
     </div>

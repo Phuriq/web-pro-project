@@ -1,7 +1,9 @@
 <template>
     <div id=grad1 class="flex align-items-center justify-content-between w-full bg-gray-900 p-2">
         <div class="flex align-items-center">
-            <img alt="logo" src="https://media.discordapp.net/attachments/895540915714789417/1108411563053948949/Screenshot_2566-05-17_at_22.10.55-removebg-preview.png?width=1256&height=388" height="40" class="mr-2" />
+            <img alt="logo"
+                src="https://media.discordapp.net/attachments/895540915714789417/1108411563053948949/Screenshot_2566-05-17_at_22.10.55-removebg-preview.png?width=1256&height=388"
+                height="40" class="mr-2" />
             <router-link to="/home">
                 <Button label="Home" class="p-button-text ml-5" id=button />
             </router-link>
@@ -16,7 +18,7 @@
             <div class="flex align-self-center">
                 <!-- <form action="" method="GET"> -->
                 <input
-                    class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
+                    v-model="searchQuery" class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
                     placeholder="ค้นหาภาพยนต์" type="text">
                 <!-- </form> -->
             </div>
@@ -33,9 +35,14 @@
     </div>
 </template>
 <script>
+import axios from "axios"
+
 export default {
+    
     data() {
         return {
+            movies: [],
+            searchQuery: null,
             userName: localStorage.getItem("user"),
             items: [
                 {
@@ -73,6 +80,14 @@ export default {
             localStorage.removeItem("user");
             this.$router.push("/signin");
         },
+        async allmovie() {
+            const res = await axios.get('http://localhost:8080/api/movie/movieall');
+            this.movies = res.data;
+            console.log(this.movies)
+        },
+    },
+    created() {
+        this.allmovie();
     },
 };
 
@@ -80,7 +95,7 @@ export default {
 
 <style>
 #grad1 {
-background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(8,79,38,1) 92%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(8, 79, 38, 1) 92%, rgba(0, 0, 0, 1) 100%);
 }
 
 #button:hover {

@@ -45,7 +45,8 @@ export default {
         async navigateInfo(id) {
             this.$router.push(`/movieinfo/${id}`)
         }
-    }
+    },
+
 }
 </script>
 
@@ -73,7 +74,7 @@ export default {
         </div>
         <div class="grid p-3" id=bg3>
             <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
-                <CardItem class="cursor-pointer" :name="movie.movieName" :date="movie.movieReleaseDate" :image="movie.movieImage" id="card"
+                <CardItem class="cursor-pointer" :name="movie.movieName" :date="movie.movieReleaseDate" :image="movie.movieImage" :category="movie.movieCategory" id="card"
                     @click="navigateInfo(movie.id)">
                 </CardItem>
             </div>
