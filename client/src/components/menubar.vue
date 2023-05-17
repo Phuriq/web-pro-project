@@ -79,7 +79,7 @@ export default {
 
 <style>
 #grad1 {
-    background-image: linear-gradient(to bottom right, #000000, #2F4F4F, #8FBC8F);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(8,79,38,1) 92%, rgba(0,0,0,1) 100%);
 }
 
 #button:hover {
