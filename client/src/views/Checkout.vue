@@ -44,8 +44,8 @@
             <div class="flex mt-5 ml-8 col-6">
                 <Card class="flex surface-ground justify-content-end flex-wrap">
                     <template #content>
-                        <img src="https://media.discordapp.net/attachments/895540915714789417/1106298226035916832/DAE8E63A-C296-4182-BB05-296BFB357853.jpg?width=1170&height=1170" style="height: 200=px; width: 250px" alt="">
-                        <h5 class="text-xl mt-1"></h5>
+                        <img :src="movies.movieImage" style="height: 400px" />
+                        <h5 class="text-xl mt-1">{{ movies.movieName }}</h5>
                         <h4 class="text-sm mt-1 text-yellow-200">ราคา :บาท ที่นั่ง :
                         </h4>
                         <div class="mt-5">
@@ -62,6 +62,8 @@
 import CardItem from "../components/CardItem.vue"
 import Cardsum from "../components/Cardsum.vue";
 import Movies from '../mockup/movies.json';
+import axios from "axios"
+
 
 export default {
     name: "Checkout",
@@ -70,24 +72,39 @@ export default {
             type: String,
             required: true
         }
+        
+    },
+    data() {
+        return {
+            name: 'App',
+            row: ["A", "B", "C", "D", "E", "F"],
+            seat: [],
+            movie: [],
+            dateResult: [],
+            date: new Date(),
+            isOnce: true,
+            movies: [],
+            movieId: ''
+        }
     },
     components: {
         CardItem,
         Cardsum
     },
     methods: {
-        selectSeat(seatNo) {
-            console.log(seatNo)
+    async movieselected(id){
+            const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${id}`);
+            this.movies = res.data;
+            console.log(this.movies)
         },
-        greet: function (event) {
-            alert('กระตุกจิตกระชากใจ')
-        },
-
     },
     mounted() {
-        let movies = localStorage.getItem("movies")
-        this.movies = JSON.parse(movies);
-        this.movie = Movies.find(movie => movie.id == this.id);
+        this.movieId = this.$route.params.id;
+        console.log(this.movieId)
+        this.movieselected(this.movieId)
+    },
+    created(){
+        this.movieselected();
     },
 }
 </script>

@@ -4,6 +4,7 @@ import CardItem from "../components/CardItem.vue"
 import Movieintheater from "../components/movieintheater.vue";
 import Movies from '../mockup/movies.json';
 import Showtimes from '../components/showtime.vue';
+import axios from "axios"
 
 export default {
     name: "App",
@@ -17,10 +18,19 @@ export default {
             movies: []
         };
     },
+    created(){
+        this.allmovie();
+    },
     mounted() {
-        this.movies = Movies
+        this.movieId = this.$route.params.id;
+        this.allmovie(this.movieId)
     },
     methods: {
+        async allmovie(){
+            const res = await axios.get('http://localhost:8080/api/movie/movieall');
+            this.movies = res.data;
+            console.log(this.movies)
+        },
         filterTag(tag) {
             console.log(tag)
         },
@@ -41,11 +51,11 @@ export default {
             <div class="row" v-for="movie in movies" :key="movie.id" id=bg1>
                 <div class="grid">
                 </div>
-                <Movieintheater class="cursor-pointer" :image="movie.image" :name="movie.name" :category="movie.category"
-                    :time="movie.time" id="card" @click="navigateInfo(movie.id)">
+                <Movieintheater class="cursor-pointer" :image="movie.movieImage" :name="movie.movieName" :category="movie.moiveCategory"
+                    :time="movie.movieHour" id="card" @click="navigateInfo(movie.id)">
                 </Movieintheater>
                 <div>
-                    <Showtimes :theater="movie.theater" :showtime="movie.showtime">
+                    <Showtimes :theater="movie.movieTheater" :showtime="movie.showtime">
                     </Showtimes>
                 </div>
             </div>

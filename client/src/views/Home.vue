@@ -1,6 +1,9 @@
 <script>
 import CardItem from "../components/CardItem.vue"
 import Movies from '../mockup/movies.json';
+import axios from "axios"
+
+
 export default {
     data() {
         return {
@@ -22,18 +25,25 @@ export default {
             ],
         }
     },
+    created(){
+        this.allmovie();
+    },
     components: {
         CardItem
     },
     mounted() {
-        this.movies = Movies
     },
     methods: {
+        async allmovie(){
+            const res = await axios.get('http://localhost:8080/api/movie/movieall');
+            this.movies = res.data;
+            console.log(this.movies)
+        },
         filterTag(tag) {
             console.log(tag)
         },
-        navigateInfo(id) {
-            this.$router.push('/movieinfo/' + id)
+        async navigateInfo(id) {
+            this.$router.push(`/movieinfo/${id}`)
         }
     }
 }
@@ -63,7 +73,7 @@ export default {
         </div>
         <div class="grid p-3" id=bg3>
             <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
-                <CardItem class="cursor-pointer" :name="movie.name" :date="movie.date" :image="movie.image" id="card"
+                <CardItem class="cursor-pointer" :name="movie.movieName" :date="movie.movieReleaseDate" :image="movie.movieImage" id="card"
                     @click="navigateInfo(movie.id)">
                 </CardItem>
             </div>

@@ -3,6 +3,8 @@ import CardItem from "../components/CardItem.vue"
 import Cardsum from "../components/Cardsum.vue";
 import Movies from '../mockup/movies.json';
 import Showtimes from '../components/showtime.vue';
+import axios from "axios"
+
 
 
 export default {
@@ -18,10 +20,12 @@ export default {
             name: 'App',
             row: ["A", "B", "C", "D", "E", "F"],
             seat: [],
-            movie: {},
+            movie: [],
             dateResult: [],
             date: new Date(),
             isOnce: true,
+            movies: [],
+            movieId: ''
         }
     },
     components: {
@@ -61,10 +65,26 @@ export default {
         },
         goCheckout: function () {
             this.$router.push('/checkout/' + this.id)
+        },
+
+
+
+        async movieselected(id){
+            const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${id}`);
+            this.movies = res.data;
+            console.log(this.movies)
+        },
+        async navigateInfo(id) {
+            this.$router.push(`/movieinfo/${id}`)
         }
     },
     mounted() {
-        this.movie = Movies.find(movie => movie.id == this.id);
+        this.movieId = this.$route.params.id;
+        console.log(this.movieId)
+        this.movieselected(this.movieId)
+    },
+    created(){
+        this.movieselected();
     },
 }
 </script>
@@ -111,12 +131,12 @@ h1:hover {
     <div class="bg-black container">
         <div class="grid mt-5 px-5 mb-4">
             <div class="col-3" style="width: 20rem">
-                <img :src="this.movie.image" style="height: 400px" class="border-round-xl">
+                <img :src="this.movies.movieImage" style="height: 400px" class="border-round-xl">
             </div>
             <div class="ml-6 p-5 text-xl mt-8">
-                <p>{{ this.movie.date }}</p>
+                <p>{{ this.movies.movieReleaseDate }}</p>
                 <div class="mt-8 text-2xl">
-                    <h5>{{ this.movie.name }}</h5>
+                    <h5>{{ this.movies.movieName }}</h5>
                 </div>
             </div>
         </div>
@@ -137,7 +157,7 @@ h1:hover {
         </div>
         <div class="flex mx-8 pl-8">
             <div>
-                <Showtimes :theater="movie.theater" :showtime="movie.showtime">
+                <Showtimes :theater="movies.movieTheater" :showtime="movies.showtime">
                 </Showtimes>
             </div>
         </div>
@@ -195,8 +215,8 @@ h1:hover {
             <div class="flex col-4">
                 <Card class="flex surface-ground justify-content-end flex-wrap">
                     <template #content>
-                        <img :src="this.movie.image" style="height: 400px" />
-                        <h5 class="text-xl mt-1">{{ this.movie.name }}</h5>
+                        <img :src="this.movies.movieImage" style="height: 400px" />
+                        <h5 class="text-xl mt-1">{{ this.movies.movieName }}</h5>
                         <h4 class="text-sm mt-1 text-yellow-200">ราคา : {{ seat.length * 240 }} บาท ที่นั่ง : {{ seat }}
                         </h4>
                         <div>

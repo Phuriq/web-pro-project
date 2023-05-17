@@ -1,6 +1,7 @@
 <script >
 import CardItem from "../components/CardItem.vue"
 import Movies from '../mockup/movies.json';
+import axios from "axios"
 
 export default {
     name: "Movieinfo",
@@ -12,7 +13,8 @@ export default {
     },
     data() {
         return {
-            movie: {},
+            movies: [],
+            movieId: '',
             actor_show: [
                 {
                     name: "kiw",
@@ -36,37 +38,46 @@ export default {
         }
     },
     methods: {
-        goBooking: function () {
-            this.$router.push('/booking/' + this.id)
+        async allmovie(id){
+            const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${id}`);
+            console.log(res.data)
+            this.movies = res.data
+        },
+        async navigateInfo(id) {
+            this.$router.push(`/booking/${id}`)
         }
     },
     mounted() {
-        this.movie = Movies.find(movie => movie.id == this.id);
+        this.movieId = this.$route.params.id;
+        this.allmovie(this.movieId)
     },
     components: {
         CardItem
     },
-}
+    created(){
+        this.allmovie();
+    },
+};
 </script>
 
 <template>
     <div class="grid">
         <div class="flex col-8 mt-5 px-5">
             <div class="" style="width: 20rem">
-                <img :src="this.movie.image" style="height: 400px" class="border-round-xl">
+                <img :src="movies.movieImage" style="height: 400px" class="border-round-xl">
             </div>
             <div class=" p-5 text-xl">
-                <p> {{ this.movie.date }} </p>
+                <p> {{ movies.movieReleaseDate }} </p>
                 <div class="mt-5 text-2xl">
-                    <h5>{{ this.movie.name }}</h5>
+                    <h5>{{ movies.movieName }}</h5>
                 </div>
                 <div class="mt-8">
-                    <Button class="p-button-outlined" label="จองรอบฉาย" @click="goBooking()" />
+                    <Button class="p-button-outlined" label="จองรอบฉาย" @click="navigateInfo(id)" />
                 </div>
             </div>
             <div class="flex col-4">
                 <div class="flex justify-content-end flex-wrap">
-                    <iframe width="500" height="300" :src="this.movie.trailer" title="YouTube video player" frameborder="0"
+                    <iframe width="500" height="300" :src="movies.movieTrailer" title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
@@ -77,7 +88,7 @@ export default {
     <div class="mt-5 px-5">
         <div class="text-xl">
             <h5>เรื่องย่อ</h5>
-            <p class="">{{ this.movie.title }}</p>
+            <p class="">{{ movies.movieTitle }}</p>
         </div>
     </div>
     <div class="flex justify-content-between flex-wrap">
