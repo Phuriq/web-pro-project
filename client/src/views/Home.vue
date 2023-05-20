@@ -7,6 +7,7 @@ import axios from "axios"
 export default {
     data() {
         return {
+            moviesSearch: [],
             movies: [],
             movies_show: [
                 {
@@ -25,7 +26,7 @@ export default {
             ],
         }
     },
-    created(){
+    created() {
         this.allmovie();
     },
     components: {
@@ -34,10 +35,17 @@ export default {
     mounted() {
     },
     methods: {
-        async allmovie(){
+        movieSearch(search) {
+            if (search) {
+                this.moviesSearch = this.movies.filter(movie => movie.movieName.includes(search))
+            } else {
+                this.moviesSearch = this.movies
+            }
+        },
+        async allmovie() {
             const res = await axios.get('http://localhost:8080/api/movie/movieall');
             this.movies = res.data;
-            console.log(this.movies)
+            this.moviesSearch = res.data
         },
         filterTag(tag) {
             console.log(tag)
@@ -63,19 +71,19 @@ export default {
                 </div>
             </template>
         </Carousel>
-        <div id=bg2 class="flex justify-content-between w-full  p-5">
-            <div>
-                <Button id=button @click="filterTag('Now')" label="กำลังฉาย" class="p-button-text text-xl ml-4" />
-                <Button id=button @click="filterTag('Action')" label="ACTION" class="p-button-text text-xl ml-4" />
-                <Button id=button @click="filterTag('Comedy')" label="COMEDY" class="p-button-text text-xl ml-4" />
-                <Button id=button @click="filterTag('Horror')" label="HORROR" class="p-button-text text-xl ml-4" />
-                <Button id=button @click="filterTag('Romantic')" label="ROMANTIC" class="p-button-text text-xl ml-4" />
+        <div class="flex">
+            <div id=bg2 class="flex justify-content-center w-full  p-5">
+                <div class="flex justify-content-center align-content-center">
+                    <input @input="(e) => movieSearch(e.target.value)"
+                        class="flex justify-content-center align-self-center p-inputtext border-green-600 p-inputtext border-round-3xl"
+                        placeholder="ค้นหาภาพยนต์" type="text">
+                </div>
             </div>
         </div>
         <div class="grid p-3" id=bg3>
-            <div class="col-3" v-for="movie in movies" :key="movie.id" id=bg1>
-                <CardItem class="cursor-pointer" :name="movie.movieName" :date="movie.movieReleaseDate" :image="movie.movieImage" :category="movie.movieCategory" id="card"
-                    @click="navigateInfo(movie.id)">
+            <div class="col-3" v-for="movie in moviesSearch" :key="movie.id" id=bg1>
+                <CardItem class="cursor-pointer" :name="movie.movieName" :date="movie.movieReleaseDate"
+                    :image="movie.movieImage" :category="movie.movieCategory" id="card" @click="navigateInfo(movie.id)">
                 </CardItem>
             </div>
         </div>
@@ -89,17 +97,17 @@ export default {
 }
 
 body {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,42,20,1) 92%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
 
 }
 
 #bg2 {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,42,20,1) 92%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
 
 }
 
 #bg3 {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,42,20,1) 92%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
 
 }
 

@@ -34,19 +34,6 @@ export default {
         Showtimes
     },
     methods: {
-        formatDate(dateString) {
-            const date = dayjs(dateString);
-            // Then specify how you want your dates to be formatted
-            return date.format('ddd D MMM ');
-        },
-        selectSeat(index, seatNo) {
-            if (!this.seat.includes(seatNo)) {
-                this.seat.push(seatNo);
-            }
-            else {
-                this.seat.splice(this.seat.indexOf(seatNo), 1);
-            }
-        },
         getDate(week = 0) {
             this.isOnce = false;
             let numOfWeek = 7;
@@ -69,13 +56,16 @@ export default {
 
 
 
-        async movieselected(id){
+        async movieselected(id) {
             const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${id}`);
             this.movies = res.data;
             console.log(this.movies)
         },
         async navigateInfo(id) {
             this.$router.push(`/movieinfo/${id}`)
+        },
+        async navigatebooking(id) {
+            this.$router.push(`/booking/${id}`)
         }
     },
     mounted() {
@@ -83,7 +73,7 @@ export default {
         console.log(this.movieId)
         this.movieselected(this.movieId)
     },
-    created(){
+    created() {
         this.movieselected();
     },
 }
@@ -129,25 +119,25 @@ h1:hover {
 
 <template>
     <div class="bg-black container fadeinleft animation-duration-200">
-            <div class="flex col-8 mt-5 px-5">
-                <div class="" style="width: 20rem">
-                    <img :src="movies.movieImage" style="height: 400px" class="border-round-xl">
-                </div>
-                <div class=" p-5 text-xl">
-                    <p> {{ movies.movieReleaseDate }} </p>
-                    <div class="mt-5 text-2xl">
-                        <h5>{{ movies.movieName }}</h5>
-                    </div>
-                </div>
-                <div class="flex col-4">
-                    <div class="flex justify-content-end flex-wrap ml-8">
-                        <iframe width="500" height="300" :src="movies.movieTrailer" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+        <div class="flex col-8 mt-5 px-5">
+            <div class="" style="width: 20rem">
+                <img :src="movies.movieImage" style="height: 400px" class="border-round-xl">
+            </div>
+            <div class=" p-5 text-xl">
+                <p> {{ movies.movieReleaseDate }} </p>
+                <div class="mt-5 text-2xl">
+                    <h5>{{ movies.movieName }}</h5>
                 </div>
             </div>
+            <div class="flex col-4">
+                <div class="flex justify-content-end flex-wrap ml-8">
+                    <iframe width="500" height="300" :src="movies.movieTrailer" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
         <div class="flex justify-content-between w-full bg-gray-800 p-1">
             <div>
                 <Button label="เลือกวัน" class="p-button-text text-xl ml-4" />
@@ -163,75 +153,18 @@ h1:hover {
                 </div>
             </div>
         </div>
-        <div class="flex mx-8 pl-8">
-            <div>
-                <Showtimes :theater="movies.movieTheater" :showtime="movies.showtime">
-                </Showtimes>
-            </div>
-        </div>
-        <div class="grid mt-8">
-            <div class="col-8">
-                <div class="flex justify-content-center align-content-center">
-                    <h2> {{ this.row[5] }}</h2>
-                    <h1 v-for="i, index in 12" class="ml-2" @click="selectSeat(index, this.row[5] + i.toString())">
-                        <font-awesome-icon icon="fa-solid fa-couch" />
-                        <span v-if="i === 6" class="ml-6"></span>
-                    </h1>
-                    <h2 class="ml-2"> {{ this.row[5] }}</h2>
+        <div v-for="movie in movies" :key="movie.id" class="flex">
+            <div id=card-bg class="flex border-round-2xl mt-8"
+                style="height: 150px; width: 750px ">
+                <img :src="image" style="height: 250px" class="border-round-xl" />
+                <div>
+                    <div class="flex flex-row ml-7">
+                        <h4 class="text-xl mt-3"> {{ movies.movieTheater }}</h4>
+                    </div>
+                    <div class="flex flex-row mx-5">
+                        <Button class="mx-5" @click="navigatebooking(movie.id)"> {{ movies.showtime }} </Button>
+                    </div>
                 </div>
-                <div class="flex justify-content-center align-content-center">
-                    <h2> {{ this.row[4] }}</h2>
-                    <h1 v-for="i, index in 12" class="ml-2" @click="selectSeat(index, this.row[4] + i.toString())">
-                        <font-awesome-icon icon="fa-solid fa-couch" />
-                        <span v-if="i === 6" class="ml-6"></span>
-                    </h1>
-                    <h2 class="ml-2"> {{ this.row[4] }}</h2>
-                </div>
-                <div class="flex justify-content-center align-content-center">
-                    <h2> {{ this.row[3] }}</h2>
-                    <h1 v-for="i, index in 12" class="ml-2" @click="selectSeat(index, this.row[3] + i.toString())">
-                        <font-awesome-icon icon="fa-solid fa-couch" />
-                        <span v-if="i === 6" class="ml-6"></span>
-                    </h1>
-                    <h2 class="ml-2"> {{ this.row[3] }}</h2>
-                </div>
-                <div class="flex justify-content-center align-content-center">
-                    <h2> {{ this.row[2] }}</h2>
-                    <h1 v-for="i, index in 12" class="ml-2" @click="selectSeat(index, this.row[2] + i.toString())">
-                        <font-awesome-icon icon="fa-solid fa-couch" />
-                        <span v-if="i === 6" class="ml-6"></span>
-                    </h1>
-                    <h2 class="ml-2"> {{ this.row[2] }}</h2>
-                </div>
-                <div class="flex justify-content-center align-content-center">
-                    <h2> {{ this.row[1] }}</h2>
-                    <h1 v-for="i, index in 12" class="ml-2" @click="selectSeat(index, this.row[1] + i.toString())">
-                        <font-awesome-icon icon="fa-solid fa-couch" />
-                        <span v-if="i === 6" class="ml-6"></span>
-                    </h1>
-                    <h2 class="ml-2"> {{ this.row[1] }}</h2>
-                </div>
-                <div class="flex justify-content-center align-content-center">
-                    <h2> {{ this.row[0] }}</h2>
-                    <h1 v-for="i, index in 12" class="ml-2" @click="selectSeat(index, this.row[0] + i.toString())">
-                        <font-awesome-icon icon="fa-solid fa-couch" />
-                        <span v-if="i === 6" class="ml-6"></span>
-                    </h1>
-                    <h2 class="ml-2"> {{ this.row[0] }}</h2>
-                </div>
-            </div>
-            <div class="flex col-4">
-                <Card class="flex surface-ground justify-content-end flex-wrap">
-                    <template #content>
-                        <img :src="this.movies.movieImage" style="height: 400px" />
-                        <h5 class="text-xl mt-1">{{ this.movies.movieName }}</h5>
-                        <h4 class="text-sm mt-1 text-yellow-200">ราคา : {{ seat.length * 240 }} บาท ที่นั่ง : {{ seat }}
-                        </h4>
-                        <div>
-                            <Button class="flex flex-column mt-5" label="KYU" style="width: 260px" @click="goCheckout()" />
-                        </div>
-                    </template>
-                </Card>
             </div>
         </div>
     </div>

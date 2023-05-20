@@ -83,7 +83,7 @@ const router = createRouter({
       props: true,
     },
     {
-      path: '/theaterinbooking',
+      path: '/theaterinbooking/:id',
       name: 'theaterinbooking',
       component: () => import('../views/theater-in-booking.vue'),
       props: true,

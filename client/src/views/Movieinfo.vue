@@ -43,8 +43,8 @@ export default {
             console.log(res.data)
             this.movies = res.data
         },
-        async navigateInfo(id) {
-            this.$router.push(`/booking/${id}`)
+        async gotheaterinbook(id) {
+            this.$router.push(`/theaterinbooking/${id}`)
         }
     },
     mounted() {
@@ -72,7 +72,7 @@ export default {
                     <h5>{{ movies.movieName }}</h5>
                 </div>
                 <div class="mt-8">
-                    <Button class="p-button-outlined" label="จองรอบฉาย" @click="navigateInfo(id)" />
+                    <Button class="p-button-outlined" label="จองรอบฉาย" @click="gotheaterinbook(id)" />
                 </div>
             </div>
             <div class="flex col-4">

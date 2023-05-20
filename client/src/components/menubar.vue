@@ -5,23 +5,13 @@
                 src="https://media.discordapp.net/attachments/895540915714789417/1108411563053948949/Screenshot_2566-05-17_at_22.10.55-removebg-preview.png?width=1256&height=388"
                 height="40" class="mr-2" />
             <router-link to="/home">
-                <Button label="Home" class="p-button-text ml-5" id=button />
-            </router-link>
-            <router-link to="/movie">
-                <Button label="Cinema" class="p-button-text ml-3" id=button />
+                <Button label="Movies" class="p-button-text ml-5" id=button />
             </router-link>
             <router-link to="/theater">
                 <Button label="Theater" class="p-button-text ml-3" id=button />
             </router-link>
         </div>
         <div class="flex align-content-center h-full">
-            <div class="flex align-self-center">
-                <!-- <form action="" method="GET"> -->
-                <input @input="movieSearch"
-                    class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
-                    placeholder="ค้นหาภาพยนต์" type="text">
-                <!-- </form> -->
-            </div>
             <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
                 style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
             <div class="card flex justify-content-center">
