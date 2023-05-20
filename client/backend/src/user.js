@@ -14,6 +14,8 @@ import process from 'process';
 //         },
 //     });
 // };
+
+// เช็คว่า username ตรงกับค่าที่รับเข้ามามั้ย
 const findName = async (userName) => {
     return await prisma.User.findUnique({
         where: {
@@ -23,7 +25,7 @@ const findName = async (userName) => {
     });
 };
 
-
+// register
 router.post('/signup', async(req, res) => {
     try{
         console.log(req.body);
@@ -53,7 +55,7 @@ router.post('/signup', async(req, res) => {
     }
     });
 
-    
+    // Login
     router.post("/signin", async (req, res) => {
         try{
             const {userName, userPassword}  = req.body;
@@ -86,6 +88,7 @@ router.post('/signup', async(req, res) => {
         
     });
 
+    // ดึงข่อมูลuser ทั้งหมด
     router.get("/users", async (req, res) => {
         try{
             const users = await prisma.User.findMany();
