@@ -18,16 +18,16 @@
             <div class="flex align-self-center">
                 <!-- <form action="" method="GET"> -->
                 <input @input="movieSearch"
-                    v-model="searchQuery" class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
+                    class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
                     placeholder="ค้นหาภาพยนต์" type="text">
                 <!-- </form> -->
             </div>
             <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
                 style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
             <div class="card flex justify-content-center">
-                <Avatar label="user" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
-                    class="align-self-center cursor-pointer mx-4 hover" style="background-color:#0f7a07; color: #ffffff"
-                    shape="circle" />
+                <Avatar :label = userName @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
+                    class="align-self-center cursor-pointer mx-4 hover" style=" color: #ffffff"
+                     />
                 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
                 <Toast />
             </div>
@@ -43,11 +43,9 @@ export default {
         return {
             movies: [],
             movieName: '',
-            userName: localStorage.getItem("user"),
+            userName: JSON.parse(localStorage.getItem("user"))?.userName,
             items: [
-                {
-                    label: localStorage.getItem("user")//.replace(/"/g, '')//'
-                    ,
+                {                    
                     items: [
                         {
                             label: 'My ticket',
@@ -56,9 +54,10 @@ export default {
                         },
                         {
                             label: 'Logout',
-                            command: () => {
+                            command:() => {
                                 localStorage.removeItem("accessToken");
                                 localStorage.removeItem("user");
+                                this.userName = ''
                                 this.$router.push("/signin");
                             },
                             icon: 'pi pi-sign-out',
@@ -85,11 +84,11 @@ export default {
             this.movies = res.data;
             console.log(this.movies)
         },
-        async movieSearch() {
+        // async movieSearch() {
     //    const res = await axios.post('http://localhost:8080/api/movie/movieall', {movieName: movieName});
          //   this.movies = res.data;
          //   console.log(this.movies)
-        },
+        // },
     },
     created() {
         this.allmovie();

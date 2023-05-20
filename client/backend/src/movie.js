@@ -51,27 +51,27 @@ router.get("/movieinfo/:id", async (req, res) => {
     }
 });
 
-router.get("/moviesearch", async (req, res) => {
-    try {
-        const movies = await prisma.Movie.findMany();
-        res.json(movies);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
+// router.get("/moviesearch", async (req, res) => {
+//     try {
+//         const movies = await prisma.Movie.findMany();
+//         res.json(movies);
+//     } catch (error) {
+//         res.status(400).json({ message: error.message });
+//     }
+// });
 
-router.post("/moviesearch", async (req, res) => {
-    try {
-        const { movieName } = req.params.movieName
-        const movies = await prisma.Movie.findUnique({
-            where: {
-                movieName: movieName,
-            }
-        });
-        res.status(200).json(movies);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
+// router.post("/moviesearch", async (req, res) => {
+//     try {
+//         const { movieName } = req.params.movieName
+//         const movies = await prisma.Movie.findUnique({
+//             where: {
+//                 movieName: movieName,
+//             }
+//         });
+//         res.status(200).json(movies);
+//     } catch (error) {
+//         res.status(400).json({ message: error.message });
+//     }
+// });
 
 export default router;

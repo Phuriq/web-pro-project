@@ -15,15 +15,17 @@ export default {
     },
     data() {
         return {
-            movies: []
+            
+            movies: [],
+            movieId: '',
         };
-    },
-    created(){
-        this.allmovie();
     },
     mounted() {
         this.movieId = this.$route.params.id;
         this.allmovie(this.movieId)
+    },
+    created(){
+        this.allmovie();
     },
     methods: {
         async allmovie(){
@@ -34,8 +36,11 @@ export default {
         filterTag(tag) {
             console.log(tag)
         },
-        navigateInfo(id) {
+        async navigateInfo(id) {
             this.$router.push('/movieinfo/' + id)
+        },
+        async navigatebooking(id) {
+            this.$router.push(`/booking/${id}`)
         }
     },
 
@@ -55,8 +60,14 @@ export default {
                     :time="movie.movieHour" id="card" @click="navigateInfo(movie.id)">
                 </Movieintheater>
                 <div>
-                    <Showtimes :theater="movie.movieTheater" :showtime="movie.showtime">
-                    </Showtimes>
+                    <div class="flex flex-row surface-ground border-round-2xl mt-2">
+                        <div class="flex flex-row mx-5">
+                            <h4 class="text-xl"> {{ movie.movieTheater }}</h4>
+                        </div>
+                    </div>
+                    <div>
+                        <Button class="mx-5" @click="navigatebooking(movie.id)"> {{ movie.showtime }} </Button>
+                    </div>
                 </div>
             </div>
         </div>

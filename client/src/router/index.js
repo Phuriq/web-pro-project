@@ -81,6 +81,12 @@ const router = createRouter({
       name: 'myticket',
       component: () => import('../views/Myticket.vue'),
       props: true,
+    },
+    {
+      path: '/theaterinbooking',
+      name: 'theaterinbooking',
+      component: () => import('../views/theater-in-booking.vue'),
+      props: true,
     }
   ]
 })
