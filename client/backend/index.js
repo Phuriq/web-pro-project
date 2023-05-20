@@ -4,6 +4,8 @@ import cors from "cors";
 
 import user from "./src/user.js";
 import movie from "./src/movie.js";
+import resev from "./src/reservation.js";
+import thea from "./src/theater.js";
 
 const app = express();
 const router = express.Router();
@@ -16,6 +18,8 @@ app.use(
   "/api",
   router.use("/user", user),
   router.use("/movie", movie),
+  router.use("/resev", resev),
+  router.use("/thea", thea),
 
 );
 
