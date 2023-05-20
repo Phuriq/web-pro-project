@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 const router = express.Router();
 
-// สร้างข้อมูลโรงภาพยนต์
+// สร้างข้อมูลรอบหนังโดยเป็นข้อมูลที่อยู่ในโรงภาพยนต์
 router.post("/round", async (req, res) => {
     const {movieId, theaterId, roundStart, roundEnd}  = req.body;
     try{
@@ -21,7 +21,7 @@ router.post("/round", async (req, res) => {
         console.log(req.param.id)
     }
 });
-// ดึงข้อมูลโรงภาพยนต์ทั้งหมด
+// ดึงข้อมูลรอบหนังทั้งหมด
 router.get("/round", async (req, res) => {
     try {
       const round = await prisma.Round.findMany();
