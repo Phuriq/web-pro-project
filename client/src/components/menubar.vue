@@ -17,7 +17,7 @@
         <div class="flex align-content-center h-full">
             <div class="flex align-self-center">
                 <!-- <form action="" method="GET"> -->
-                <input
+                <input @input="movieSearch"
                     v-model="searchQuery" class="flex align-self-center p-inputtext p-component mr-4 border-green-600 p-inputtext-sm border-round-3xl"
                     placeholder="ค้นหาภาพยนต์" type="text">
                 <!-- </form> -->
@@ -42,7 +42,7 @@ export default {
     data() {
         return {
             movies: [],
-            searchQuery: null,
+            movieName: '',
             userName: localStorage.getItem("user"),
             items: [
                 {
@@ -84,6 +84,11 @@ export default {
             const res = await axios.get('http://localhost:8080/api/movie/movieall');
             this.movies = res.data;
             console.log(this.movies)
+        },
+        async movieSearch() {
+    //    const res = await axios.post('http://localhost:8080/api/movie/movieall', {movieName: movieName});
+         //   this.movies = res.data;
+         //   console.log(this.movies)
         },
     },
     created() {

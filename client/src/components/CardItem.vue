@@ -20,7 +20,6 @@ export default {
                 <img :src="image" style="height: 400px; width: 250px" class="border-round-xl" />
                 <h5 class="text-green-400 mt-2">{{ date }}</h5>
                 <h4 class="mt-3">{{ name }}</h4>
-                <h3 class="mt-3 ">{{ category }}</h3>
                 </div>
             </template>
         </Card>
