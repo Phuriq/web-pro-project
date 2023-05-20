@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const router = express.Router();
 
+// สร้างหนังจากหน้าadmin
 router.post('/home', async (req, res) => {
     try {
         console.log(req.body)
@@ -28,6 +29,8 @@ router.post('/home', async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
+
+// ดึงข้อมูลหนังทั้งหมด
 router.get("/movieall", async (req, res) => {
     try {
         const movies = await prisma.Movie.findMany();
@@ -37,6 +40,7 @@ router.get("/movieall", async (req, res) => {
     }
 });
 
+// ดึงข้อมูลหนังตามId ที่ได้รับ
 router.get("/movieinfo/:id", async (req, res) => {
     try {
         const { id } = req.params
