@@ -7,6 +7,9 @@
             <router-link to="/home">
                 <Button label="Movies" class="p-button-text ml-5" id=button />
             </router-link>
+            <router-link v-if="isAdmin" to="/adminhome">
+                <Button label="Admin" class="p-button-text ml-5" id=button />
+            </router-link>
         </div>
         <div class="flex align-content-center h-full">
             <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
@@ -29,6 +32,7 @@ export default {
         return {
             movies: [],
             movieName: '',
+            isAdmin: false,
             userName: JSON.parse(localStorage.getItem("user"))?.userName,
             items: [
                 {
@@ -53,6 +57,9 @@ export default {
             ]
         };
     },
+    mounted() {
+        this.checkAdmin();
+    },
     methods: {
         toggle(event) {
             this.$refs.menu.toggle(event);
@@ -70,22 +77,27 @@ export default {
             this.movies = res.data;
             console.log(this.movies)
         },
-        // async movieSearch() {
-        //    const res = await axios.post('http://localhost:8080/api/movie/movieall', {movieName: movieName});
-        //   this.movies = res.data;
-        //   console.log(this.movies)
-        // },
-    },
-    created() {
-        this.allmovie();
-    },
-};
+        checkAdmin() {
+            const user = JSON.parse(localStorage.getItem("user"));
+            if (user && user.role === "admin") {
+                this.isAdmin = true;
+            }
+            // async movieSearch() {
+            //    const res = await axios.post('http://localhost:8080/api/movie/movieall', {movieName: movieName});
+            //   this.movies = res.data;
+            //   console.log(this.movies)
+            // },
+        },
+        created() {
+            this.allmovie();
+        },
+    } };  
 
 </script>
 
 <style>
 #grad1 {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(8, 79, 38, 1) 92%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(89.97deg, #1C0327 -6.33%, #041B27 56.36%, #075E39 121.02%);
 }
 
 #button:hover {
