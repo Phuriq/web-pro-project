@@ -39,9 +39,10 @@ router.get('/reservation/:id', async (req, res) => {
             round: {
               include: {
                 movie: true,
-                theater: true
+                theater: true,
               }
-            }
+            },
+            seat: true
           }
         }
       }
@@ -52,7 +53,7 @@ router.get('/reservation/:id', async (req, res) => {
   }
 })
 
-// ดึงข้อมูลการจองทองหมด
+// ดึงข้อมูลการจองทั้งหมด
 router.get('/reservation', async (req, res) => {
   try {
     const allReservation = await prisma.reservation.findMany()
