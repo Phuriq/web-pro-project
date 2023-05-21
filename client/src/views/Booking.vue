@@ -273,11 +273,11 @@ h1:hover {
         <div class="flex ml-8 mt-8 w-full p-1">
         <div class="text-3xl flex">
             <font-awesome-icon class="mr-3 mt-2 text-red-400" icon="fa-solid fa-couch" />
-            ที่นั้งที่ถูกจองไปแล้ว
+            ที่นั่งที่ถูกจองไปแล้ว
         </div>
         <div class="text-3xl ml-7 flex">
             <font-awesome-icon class="mr-3 mt-2 text-green-400" icon="fa-solid fa-couch" />
-            ที่ท่านที่ผู้ใช้งานเลือก
+            ที่นั่งที่ผู้ใช้งานเลือก
         </div>
     </div>
         <div class="mt-5 flex align-items-center">

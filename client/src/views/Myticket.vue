@@ -1,6 +1,6 @@
 <template>
   <Dialog v-model:visible="visible" modal :style="{ width: '30vw' }">
-    <img class="ml-5" src="https://media.discordapp.net/attachments/895540915714789417/1109960950573977610/image.png?width=648&height=652" alt="">
+    <img class="flex justify-content-center" src="https://media.discordapp.net/attachments/895540915714789417/1109960950573977610/image.png?width=648&height=652" alt="">
     <h5 class="flex justify-content-center text-4xl">Scan เพื่อรับบัตร</h5>
 </Dialog>
   <div class="fadeinleft animation-duration-200">
