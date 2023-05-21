@@ -13,7 +13,12 @@ model User {
   userPhone    String
   userEmail    String        @unique
   userPassword String
+  role         Role          @default(customer)
   reservations Reservation[]
+}
+enum Role {
+  customer
+  admin
 }
 
 model Movie {
@@ -68,6 +73,7 @@ model Reservation {
   seat          Seat          @relation(fields: [seatId], references: [id])
   seatId        Int
   price         Float
+  createdAt     DateTime      @default(now())
 }
 
 enum PaymentStatus {
