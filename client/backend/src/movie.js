@@ -56,6 +56,20 @@ router.get("/movieinfo/:id", async (req, res) => {
     }
 });
 
+router.delete("/movieinfo/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const deletedMovie = await prisma.Movie.delete({
+            where: {
+                id: parseInt(id),
+            }
+        });
+        res.status(200).json({ message: 'Movie deleted', movie: deletedMovie });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
 // router.get("/moviesearch", async (req, res) => {
 //     try {
 //         const movies = await prisma.Movie.findMany();
