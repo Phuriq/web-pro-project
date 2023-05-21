@@ -53,7 +53,7 @@ const router = createRouter({
       component: () => import('../views/Theater.vue')
     },
     {
-      path: '/booking/:movieId/:theaterId',
+      path: '/booking/:roundId',
       name: 'booking',
       component: () => import('../views/Booking.vue'),
       props: true,
@@ -62,12 +62,6 @@ const router = createRouter({
       path: '/movieinfo/:id',
       name: 'movieinfoDetail',
       component: () => import('../views/Movieinfo.vue'),
-      props: true,
-    },
-    {
-      path: '/checkout/:id',
-      name: 'checkout',
-      component: () => import('../views/Checkout.vue'),
       props: true,
     },
     {

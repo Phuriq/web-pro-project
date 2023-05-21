@@ -41,6 +41,7 @@ model Theater {
 model Seat {
   id           Int           @id @default(autoincrement())
   seatNumber   Int
+  seatRow      String
   theater      Theater       @relation(fields: [theaterId], references: [id])
   theaterId    Int
   reservations Reservation[]
@@ -64,9 +65,9 @@ model Reservation {
   user          User?         @relation(fields: [userId], references: [id])
   userId        Int?
   paymentStatus PaymentStatus @default(UNDONE)
-  seatAmount    Int
   seat          Seat          @relation(fields: [seatId], references: [id])
   seatId        Int
+  price         Float
 }
 
 enum PaymentStatus {

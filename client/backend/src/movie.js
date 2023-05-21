@@ -26,6 +26,7 @@ router.post('/home', async (req, res) => {
 
         res.json({ Movie: createMovie });
     } catch (error) {
+        console.log(error)
         res.status(400).json({ message: error.message });
     }
 });
