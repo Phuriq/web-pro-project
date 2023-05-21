@@ -130,6 +130,7 @@ export default {
                         paymentStatus: 'DONE',
                         price: 240
                     })
+                    this.$toast.add({ severity: 'success', summary: 'จองตั๋วสำเร็จ', detail: 'ตรวจสอบตั๋วของท่านได้ที่ My ticket', life: 3000 });
                 })
                 console.log('success')
                 this.$router.push('/home')
@@ -318,4 +319,5 @@ h1:hover {
             </div>
         </div>
     </div>
+    <Toast position="bottom-right" />
 </template>

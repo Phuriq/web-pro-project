@@ -5,7 +5,6 @@ import MenuBar from "./components/menubar.vue"
 
 <template>
   <MenuBar></MenuBar>
-  <Toast position="bottom-right" />
   <RouterView />
 </template>
 
