@@ -15,9 +15,8 @@
             <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
                 style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
             <div class="card flex justify-content-center">
-                <Avatar :label = userName @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
-                    class="align-self-center cursor-pointer mx-4 hover" style=" color: #ffffff"
-                     />
+                <Avatar :label=userName @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
+                    class="align-self-center cursor-pointer mx-4" style="width: 150px; color: #41DD07" />
                 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
                 <Toast />
             </div>
@@ -28,14 +27,14 @@
 import axios from "axios"
 
 export default {
-    
+
     data() {
         return {
             movies: [],
             movieName: '',
             userName: JSON.parse(localStorage.getItem("user"))?.userName,
             items: [
-                {                    
+                {
                     items: [
                         {
                             label: 'My ticket',
@@ -44,7 +43,7 @@ export default {
                         },
                         {
                             label: 'Logout',
-                            command:() => {
+                            command: () => {
                                 localStorage.removeItem("accessToken");
                                 localStorage.removeItem("user");
                                 this.userName = ''
@@ -75,9 +74,9 @@ export default {
             console.log(this.movies)
         },
         // async movieSearch() {
-    //    const res = await axios.post('http://localhost:8080/api/movie/movieall', {movieName: movieName});
-         //   this.movies = res.data;
-         //   console.log(this.movies)
+        //    const res = await axios.post('http://localhost:8080/api/movie/movieall', {movieName: movieName});
+        //   this.movies = res.data;
+        //   console.log(this.movies)
         // },
     },
     created() {

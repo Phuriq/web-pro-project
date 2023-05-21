@@ -20,7 +20,7 @@ app.use(
   router.use("/user", user),
   router.use("/movie", movie),
   router.use("/resev", resev),
-  router.use("/thea", thea),
+  router.use("/theater", thea),
   router.use("/rou", round),
 
 );

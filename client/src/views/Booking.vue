@@ -21,11 +21,13 @@ export default {
             row: ["A", "B", "C", "D", "E", "F"],
             seat: [],
             movie: [],
+            theaters: [],
             dateResult: [],
             date: new Date(),
             isOnce: true,
             movies: [],
-            movieId: ''
+            movieId: '',
+            theaterId: ''
         }
     },
     components: {
@@ -67,24 +69,28 @@ export default {
             this.$router.push('/checkout/' + this.id)
         },
 
-
-
-        async movieselected(id){
-            const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${id}`);
+        async movieselected(movieId) {
+            const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${movieId}`);
             this.movies = res.data;
             console.log(this.movies)
         },
-        async navigateInfo(id) {
-            this.$router.push(`/movieinfo/${id}`)
-        }
+        async theaterselected(theaterId) {
+            const res = await axios.get(`http://localhost:8080/api/theater/theater/${theaterId}`);
+            this.theaters = res.data;
+            console.log(this.theaters)
+        },
     },
     mounted() {
-        this.movieId = this.$route.params.id;
-        console.log(this.movieId)
-        this.movieselected(this.movieId)
+        this.movieId = this.$route.params.movieId;
+        this.theaterId = this.$route.params.theaterId;
+        console.log(this.movieId);
+        console.log(this.theaterId);
+        this.movieselected(this.movieId);
+        this.theaterselected(this.theaterId);
     },
-    created(){
+    created() {
         this.movieselected();
+        this.theaterselected();
     },
 }
 </script>
@@ -129,25 +135,25 @@ h1:hover {
 
 <template>
     <div class="bg-black container fadeinleft animation-duration-200">
-            <div class="flex col-8 mt-5 px-5">
-                <div class="" style="width: 20rem">
-                    <img :src="movies.movieImage" style="height: 400px" class="border-round-xl">
-                </div>
-                <div class=" p-5 text-xl">
-                    <p> {{ movies.movieReleaseDate }} </p>
-                    <div class="mt-5 text-2xl">
-                        <h5>{{ movies.movieName }}</h5>
-                    </div>
-                </div>
-                <div class="flex col-4">
-                    <div class="flex justify-content-end flex-wrap ml-8">
-                        <iframe width="500" height="300" :src="movies.movieTrailer" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+        <div class="flex col-8 mt-5 px-5">
+            <div class="" style="width: 20rem">
+                <img :src="movies.movieImage" style="height: 400px" class="border-round-xl">
+            </div>
+            <div class=" p-5 text-xl">
+                <p> {{ movies.movieReleaseDate }} </p>
+                <div class="mt-5 text-2xl">
+                    <h5>{{ movies.movieName }}</h5>
                 </div>
             </div>
+            <div class="flex col-4">
+                <div class="flex justify-content-end flex-wrap ml-8">
+                    <iframe width="500" height="300" :src="movies.movieTrailer" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
         <div class="flex justify-content-between w-full bg-gray-800 p-1">
             <div>
                 <Button label="เลือกวัน" class="p-button-text text-xl ml-4" />
@@ -225,6 +231,7 @@ h1:hover {
                     <template #content>
                         <img :src="this.movies.movieImage" style="height: 400px" />
                         <h5 class="text-xl mt-1">{{ this.movies.movieName }}</h5>
+                        <h3 class="text-xl mt-1">{{ this.theaters.theaterName }}</h3>
                         <h4 class="text-sm mt-1 text-yellow-200">ราคา : {{ seat.length * 240 }} บาท ที่นั่ง : {{ seat }}
                         </h4>
                         <div>

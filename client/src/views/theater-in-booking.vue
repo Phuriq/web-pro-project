@@ -21,11 +21,13 @@ export default {
             row: ["A", "B", "C", "D", "E", "F"],
             seat: [],
             movie: [],
+            theaters: [],
             dateResult: [],
             date: new Date(),
             isOnce: true,
             movies: [],
-            movieId: ''
+            movieId: '',
+            theaterId:''
         }
     },
     components: {
@@ -50,23 +52,22 @@ export default {
                 return ele != value;
             });
         },
-        goCheckout: function () {
-            this.$router.push('/checkout/' + this.id)
-        },
-
-
-
         async movieselected(id) {
             const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${id}`);
             this.movies = res.data;
             console.log(this.movies)
         },
+        async alltheater() {
+            const res = await axios.get('http://localhost:8080/api/theater/theater');
+            this.theaters = res.data;
+            console.log(this.theaters)
+        },
         async navigateInfo(id) {
             this.$router.push(`/movieinfo/${id}`)
         },
-        async navigatebooking(id) {
-            this.$router.push(`/booking/${id}`)
-        }
+        async navigatebooking(movieId, theaterId) {
+        this.$router.push(`/booking/${movieId}/${theaterId}`)
+    },
     },
     mounted() {
         this.movieId = this.$route.params.id;
@@ -75,6 +76,7 @@ export default {
     },
     created() {
         this.movieselected();
+        this.alltheater();
     },
 }
 </script>
@@ -153,16 +155,16 @@ h1:hover {
                 </div>
             </div>
         </div>
-        <div v-for="movie in movies" :key="movie.id" class="flex">
-            <div id=card-bg class="flex border-round-2xl mt-8"
+        <div v-for="theater in theaters" :key="theater.id" class="flex">
+            <div id=card-bg class="flex border-round-2xl mt-8 ml-8"
                 style="height: 150px; width: 750px ">
                 <img :src="image" style="height: 250px" class="border-round-xl" />
                 <div>
                     <div class="flex flex-row ml-7">
-                        <h4 class="text-xl mt-3"> {{ movies.movieTheater }}</h4>
+                        <h4 class="text-xl mt-3"> {{ theater.theaterName }} ( {{theater.theaterLocation }} )</h4>
                     </div>
                     <div class="flex flex-row mx-5">
-                        <Button class="mx-5" @click="navigatebooking(movie.id)"> {{ movies.showtime }} </Button>
+                        <Button class="mx-5" @click="navigatebooking(movies.id, theater.id)"> {{ movies.showtime }} </Button>
                     </div>
                 </div>
             </div>

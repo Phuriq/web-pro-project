@@ -53,7 +53,7 @@ const router = createRouter({
       component: () => import('../views/Theater.vue')
     },
     {
-      path: '/booking/:id',
+      path: '/booking/:movieId/:theaterId',
       name: 'booking',
       component: () => import('../views/Booking.vue'),
       props: true,
@@ -87,7 +87,19 @@ const router = createRouter({
       name: 'theaterinbooking',
       component: () => import('../views/theater-in-booking.vue'),
       props: true,
-    }
+    },
+    {
+      path: '/adminhome',
+      name: 'adminhome',
+      component: () => import('../views/Adminhome.vue'),
+      props: true,
+    },
+    {
+      path: '/admintheater',
+      name: 'admintheater',
+      component: () => import('../views/Admintheater.vue'),
+      props: true,
+    },
   ]
 })
 
