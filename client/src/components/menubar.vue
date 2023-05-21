@@ -16,7 +16,7 @@
                 style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
             <div class="card flex justify-content-center">
                 <Avatar :label=userName @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
-                    class="align-self-center cursor-pointer mx-4" style="width: 150px; color: #41DD07" />
+                    class="align-self-center bg-black-alpha-90 cursor-pointer mx-4" style="width: 150px; color: #41DD07" />
                 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
                 <Toast />
             </div>

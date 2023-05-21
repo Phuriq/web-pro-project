@@ -72,9 +72,9 @@ export default {
     <h5 class="flex align-items-center justify-content-center text-4xl">
         MASTER ADMIN SUPER DEV
     </h5>
-    <div class="grid">
-        <div class="col">
-            <div class="flex justify-content-start " style="padding-left: 200px;">
+    <div class="grid justify-content-center pl-8">
+        <div class="col pl-8">
+            <div class="flex align-items-center justify-content-center pl-8">
                 <Card style="width: 30rem" class="surface-50 border-round-xs" id="grad2">
                     <template #content>
                         <h5 class="flex align-items-center justify-content-center text-2xl" style="margin: 0;">
@@ -95,9 +95,6 @@ export default {
                             </div>
                             <h5 class="mt-5">Movie Title</h5>
                             <InputText type="text" v-model="movieTitle" />
-
-                            <h5 class="mt-5">Movie Category</h5>
-                            <InputText type="text" v-model="movieCategory" />
 
                             <h5 class="mt-5">Movie Image</h5>
                             <InputText type="text" v-model="movieImage" />
@@ -124,10 +121,10 @@ export default {
                 </Card>
             </div>
         </div>
-        <div class="col">
-            <Card style="width: 10rem" class="surface-50 border-round-xs" id="grad">
+        <div class="col pl-8">
+            <Card style="width: 15rem" class="surface-50 border-round-xs" id="grad">
                 <template #content>
-                    <h5 class="flex align-items-center justify-content-center text-2xl" style="margin: 0;">
+                    <h5 class="flex align-items-center justify-content-center text-2xl " style="margin: 0;">
                         ลบภาพยนต์
                     </h5>
                     <div class="flex flex-column">

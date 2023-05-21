@@ -263,11 +263,11 @@ h1:hover {
                 </div>
             </div>
         </div>
-        <div class="flex justify-content-start w-full bg-gray-800 p-1">
-            <div>
-                <Button label="เลือกวัน" class="p-button-text text-xl ml-4" />
-                <Button label="จองตั๋ว" class="p-button-text text-xl ml-4" />
-                <Button label="ชำระเงิน" class="p-button-text text-xl ml-4" />
+        <div class="flex justify-content-start w-full p-1 mt-5">
+            <div class="ml-7">
+                <Button label="เลือกโรงภาพยนต์ =>" class="p-button-text text-xl " />
+                <Button label="จองตั๋ว =>" class="p-button-text text-xl " />
+                <Button label="ชำระเงิน" class="p-button-text text-xl " />
             </div>
         </div>
         <div class="flex ml-8 mt-8 w-full p-1">

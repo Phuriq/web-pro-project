@@ -125,15 +125,15 @@ h1:hover {
         </div>
       </div>
     </div>
-    <div class="flex justify-content-between w-full bg-gray-800 p-1">
-      <div>
-        <Button label="เลือกวัน" class="p-button-text text-xl ml-4" />
-        <Button label="จองตั๋ว" class="p-button-text text-xl ml-4" />
-        <Button label="ชำระเงิน" class="p-button-text text-xl ml-4" />
+    <div class="flex justify-content-between  w-full p-1 mt-5">
+      <div class="ml-7">
+        <Button label="เลือกโรงภาพยนต์ =>" class="p-button-text text-xl " />
+        <Button label="จองตั๋ว =>" class="p-button-text text-xl " />
+        <Button label="ชำระเงิน" class="p-button-text text-xl " />
       </div>
     </div>
 
-    <div v-for="theater in theaters" :key="theater.id" class="flex">
+    <div v-for="theater in theaters" :key="theater.id" class="flex  w-full">
       <div id="card-bg" class="flex border-round-2xl mt-8 ml-8" style="height: 150px; width: 750px">
         <img :src="image" style="height: 250px" class="border-round-xl" />
         <div>
