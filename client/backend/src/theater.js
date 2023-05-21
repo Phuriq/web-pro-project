@@ -49,30 +49,5 @@ router.get('/:theaterId', async (req, res) => {
 })
 
 // ดึงข้อมูลการจองตั๋วตาม ID
-router.get('/theater/:theaterId/movie/:movieId', async (req, res) => {
-  try {
-    const theaterId = req.params.theaterId
-    const movieId = req.params.movieId
-
-    // Retrieve theater and movie information based on theaterId and movieId
-
-    const theater = await prisma.Theater.findUnique({
-      where: {
-        id: theaterId
-      }
-    })
-
-    const movie = await prisma.Movie.findUnique({
-      where: {
-        id: movieId
-      }
-    })
-
-    // Return theater and movie information in the response
-    res.json({ theater, movie })
-  } catch (error) {
-    res.status(400).json({ message: error.message })
-  }
-})
 
 export default router

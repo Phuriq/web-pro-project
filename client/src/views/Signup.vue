@@ -15,17 +15,6 @@
                     <InputText type="text" v-model="value1" />
                     <h5>Password</h5>
                     <InputText type="text" v-model="value1" />
-                    <div class="grid">
-                        <div class="col">
-                            <h5>ชื่อ</h5>
-                            <InputText type="text" v-model="value1" />
-                        </div>
-                        <div class="col">
-                            <h5>นามสกุล</h5>
-                            <InputText type="text" v-model="value1" />
-                        </div>
-
-                    </div>
                     <h5>Tel</h5>
                     <InputText type="number" v-model="value1" />
                 </div>

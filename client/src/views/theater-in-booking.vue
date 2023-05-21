@@ -33,22 +33,6 @@ export default {
     Showtimes
   },
   methods: {
-    getDate(week = 0) {
-      this.isOnce = false
-      let numOfWeek = 7
-      console.log(numOfWeek)
-      for (let i = week * numOfWeek; (i = week * numOfWeek + numOfWeek); i++) {
-        let nextDay = new Date(this.today)
-        nextDay.setDate(this.date.getDate() + i)
-        this.dateResult.push({ data: nextDay, isSelect: false })
-      }
-      this.dateResult[0].isSelect = true
-    },
-    arrayRemove(arr, value) {
-      return arr.filter(function (ele) {
-        return ele != value
-      })
-    },
     async movieselected(id) {
       const res = await axios.get(`http://localhost:8080/api/movie/movieinfo/${id}`)
       this.movies = res.data

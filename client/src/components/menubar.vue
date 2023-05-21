@@ -7,9 +7,6 @@
             <router-link to="/home">
                 <Button label="Movies" class="p-button-text ml-5" id=button />
             </router-link>
-            <router-link to="/theater">
-                <Button label="Theater" class="p-button-text ml-3" id=button />
-            </router-link>
         </div>
         <div class="flex align-content-center h-full">
             <!-- <Avatar label="K" class="align-self-center mx-4 navbar-item has-dropdown is-hoverable"
