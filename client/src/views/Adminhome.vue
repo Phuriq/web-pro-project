@@ -1,132 +1,151 @@
 <script>
-import CardItem from "../components/CardItem.vue"
-import Movies from '../mockup/movies.json';
 import axios from "axios"
 
 
 export default {
     data() {
         return {
-            moviesSearch: [],
-            movies: [],
-            movies_show: [
-                {
-                    title: "qwe",
-                    name: 'https://i.ytimg.com/vi/hH86YEyhirg/maxresdefault.jpg',
-
-                },
-                {
-                    title: "asd",
-                    name: 'https://www.fungjaizine.com/wp-content/uploads/2018/09/Untitled-1-6.jpg',
-                },
-                {
-                    title: "zxc",
-                    name: 'https://www.fungjaizine.com/wp-content/uploads/2018/07/slurcover02.jpg',
-                }
-            ],
+            movieName: '',
+            movieReleaseDate: '',
+            movieHour: '',
+            movieTitle: '',
+            movieCategory: '',
+            movieImage: '',
+            movieTrailer: '',
+            movieTheater: '',
+            showtime: '',
+            movieId: ''
         }
-    },
-    created() {
-        this.allmovie();
-    },
-    components: {
-        CardItem
     },
     mounted() {
+        this.checkAdmin();
     },
     methods: {
-        movieSearch(search) {
-            if (search) {
-                this.moviesSearch = this.movies.filter(movie => movie.movieName.includes(search))
-            } else {
-                this.moviesSearch = this.movies
+        checkAdmin() {
+            const user = JSON.parse(localStorage.getItem("user"));
+
+            if (!user || user.role !== "admin") {
+
+                this.$router.push("/home");
             }
         },
-        async allmovie() {
-            const res = await axios.get('http://localhost:8080/api/movie/movieall');
-            this.movies = res.data;
-            this.moviesSearch = res.data
+
+        async CreatMovie() {
+            try {
+                const response = await axios.post('http://localhost:8080/api/movie/home', {
+                    movieName: this.movieName,
+                    movieReleaseDate: this.movieReleaseDate,
+                    movieHour: this.movieHour,
+                    movieTitle: this.movieTitle,
+                    movieCategory: this.movieCategory,
+                    movieImage: this.movieImage,
+                    movieTrailer: this.movieTrailer,
+                    movieTheater: this.movieTheater,
+                    showtime: this.showtime,
+                })
+                console.log(response);
+                const { movieName } = response.data.Movie;
+                alert(`เพิ่มหนังเรื่อง ${movieName} แล้ว`);
+            } catch (error) {
+                alert(error.response.data.message)
+            }
         },
-        filterTag(tag) {
-            console.log(tag)
+        async deleteMovie() {
+            try {
+                const response = await axios.delete(`http://localhost:8080/api/movie/movieinfo/${this.movieId}`);
+                console.log(response);
+                const { message } = response.data;
+                alert(message);
+
+                // เมื่อลบภาพยนต์เรียบร้อยแล้วให้เคลียร์ค่าใน input
+                this.movieId = '';
+            } catch (error) {
+                alert(error.response.data.message);
+            }
         },
-        async navigateInfo(id) {
-            this.$router.push(`/movieinfo/${id}`)
-        }
     },
 
 }
 </script>
 
 <template>
-    <div class="fadeinleft animation-duration-200">
-        <div id="bg-gradient"></div>
-        <div class="nav">
-        </div>
-        <Carousel :value="movies_show" :numVisible="1" :numScroll="1" :autoplayInterval="4000"
-            class="flex justify-content-center mt-3">
-            <template #item="movies_show">
-                <div class="flex justify-content-center" style="height: 280px" v-for="movie in movies_show">
-                    <img :src="movie.name" style="height: 550px">
-                </div>
-            </template>
-        </Carousel>
-        <div class="flex">
-            <div id=bg2 class="flex justify-content-center w-full  p-5">
-                <div class="flex justify-content-center align-content-center">
-                    <input @input="(e) => movieSearch(e.target.value)"
-                        class="flex justify-content-center align-self-center p-inputtext border-green-600 p-inputtext border-round-3xl"
-                        placeholder="ค้นหาภาพยนต์" type="text">
-                </div>
+    <h5 class="flex align-items-center justify-content-center text-4xl">
+        MASTER ADMIN SUPER DEV
+    </h5>
+    <div class="grid">
+        <div class="col">
+            <div class="flex justify-content-start " style="padding-left: 200px;">
+                <Card style="width: 30rem" class="surface-50 border-round-xs" id="grad2">
+                    <template #content>
+                        <h5 class="flex align-items-center justify-content-center text-2xl" style="margin: 0;">
+                            เพิ่มภาพยนต์
+                        </h5>
+                        <div class="flex flex-column">
+                            <h5>Movie Name</h5>
+                            <InputText type="text" v-model="movieName" />
+                            <div class="grid">
+                                <div class="col">
+                                    <h5 class="mt-5">Movie Release Date</h5>
+                                    <InputText type="text" v-model="movieReleaseDate" />
+                                </div>
+                                <div class="col">
+                                    <h5 class="mt-5">Movie Hour</h5>
+                                    <InputText type="text" v-model="movieHour" />
+                                </div>
+                            </div>
+                            <h5 class="mt-5">Movie Title</h5>
+                            <InputText type="text" v-model="movieTitle" />
+
+                            <h5 class="mt-5">Movie Category</h5>
+                            <InputText type="text" v-model="movieCategory" />
+
+                            <h5 class="mt-5">Movie Image</h5>
+                            <InputText type="text" v-model="movieImage" />
+
+                            <h5 class="mt-5">Movie Trailer</h5>
+                            <InputText type="text" v-model="movieTrailer" />
+                            <div class="grid">
+                                <div class="col">
+                                    <h5 class="mt-5">Movie Theater</h5>
+                                    <InputText type="text" v-model="movieTheater" />
+                                </div>
+                                <div class="col">
+                                    <h5 class="mt-5">Showtime</h5>
+                                    <InputText type="text" v-model="showtime" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-column">
+                            <Button @click.prevent="CreatMovie" label="CreatMovie"
+                                class="flex justify-content-center p-button-primary mt-5" />
+                        </div>
+                    </template>
+                </Card>
             </div>
         </div>
-        <div class="grid p-3" id=bg3>
-            <div class="col-3" v-for="movie in moviesSearch" :key="movie.id" id=bg1>
-                <CardItem class="cursor-pointer" :name="movie.movieName" :date="movie.movieReleaseDate"
-                    :image="movie.movieImage" :category="movie.movieCategory" id="card" @click="navigateInfo(movie.id)">
-                </CardItem>
-            </div>
+        <div class="col">
+            <Card style="width: 10rem" class="surface-50 border-round-xs" id="grad">
+                <template #content>
+                    <h5 class="flex align-items-center justify-content-center text-2xl" style="margin: 0;">
+                        ลบภาพยนต์
+                    </h5>
+                    <div class="flex flex-column">
+                        <h5 style="text-align: center;">MovieId</h5>
+                        <InputText type="text" v-model="movieId" />
+
+                    </div>
+
+
+                    <div class="flex flex-column">
+                        <Button @click.prevent="deleteMovie" label="Delete"
+                            class="flex justify-content-center p-button-primary mt-5" />
+                    </div>
+                </template>
+            </Card>
         </div>
     </div>
 </template>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
-
-}
-
-#bg2 {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
-
-}
-
-#bg3 {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
-
-}
-
-#button:hover {
-    background-color: #5F9EA0;
-    color: white;
-}
-
-#card {
-    border-radius: 15px;
-    transition: 0.3s
-}
-
-#card:hover {
-    opacity: 0.5
-}
-
-#card:before {
-    opacity: 1
-}
-</style>
+<style></style>
 
