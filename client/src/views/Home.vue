@@ -72,10 +72,10 @@ export default {
             </template>
         </Carousel>
         <div class="flex">
-            <div id=bg2 class="flex justify-content-center w-full  p-5">
+            <div id=bg2 class="flex justify-content-center w-full p-5">
                 <div class="flex justify-content-center align-content-center">
                     <input @input="(e) => movieSearch(e.target.value)"
-                        class="flex justify-content-center align-self-center p-inputtext border-green-600 p-inputtext border-round-3xl"
+                        class="flex justify-content-center align-self-center p-inputtext-lg border-green-600 p-inputtext border-round-3xl"
                         placeholder="ค้นหาภาพยนต์" type="text">
                 </div>
             </div>
