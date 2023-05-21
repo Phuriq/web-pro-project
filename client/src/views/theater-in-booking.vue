@@ -39,6 +39,7 @@ export default {
       console.log(this.movies)
     },
     async alltheater() {
+      // find round in theater
       const res = await axios.get(`http://localhost:8080/api/rou/${this.movieId}`)
       this.theaters = res.data
     },

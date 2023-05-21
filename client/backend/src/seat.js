@@ -26,6 +26,9 @@ router.get('/:theaterId', async (req, res) => {
     const getSeat = await prisma.seat.findMany({
       where: {
         theaterId: Number(theaterId)
+      },
+      include: {
+        reservations: true
       }
     })
     res.json(getSeat)

@@ -25,6 +25,33 @@ router.post('/reservation', async (req, res) => {
   }
 })
 
+router.get('/reservation/:id', async (req, res) => {
+  try {
+    console.log(req.params.id)
+    const { id } = req.params
+    const reservation = await prisma.user.findMany({
+      where: {
+        id: parseInt(id)
+      },
+      select: {
+        reservations: {
+          include: {
+            round: {
+              include: {
+                movie: true,
+                theater: true
+              }
+            }
+          }
+        }
+      }
+    })
+    res.json(reservation[0].reservations)
+  } catch (error) {
+    res.status(400).json({ message: error.message })
+  }
+})
+
 // ดึงข้อมูลการจองทองหมด
 router.get('/reservation', async (req, res) => {
   try {

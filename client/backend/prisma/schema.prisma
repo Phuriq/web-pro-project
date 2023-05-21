@@ -68,6 +68,7 @@ model Reservation {
   seat          Seat          @relation(fields: [seatId], references: [id])
   seatId        Int
   price         Float
+  createdAt     DateTime      @default(now())
 }
 
 enum PaymentStatus {

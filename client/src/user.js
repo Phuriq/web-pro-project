@@ -1,98 +1,91 @@
-import express from "express";
+import express from 'express'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
-const router = express.Router();
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import process from 'process';
+const router = express.Router()
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import process from 'process'
 
 // const findEmail = async (userEmail) => {
 //     return await prisma.User.findUnique({
 //         where: {
 //             userEmail: userEmail
-        
+
 //         },
 //     });
 // };
 const findName = async (userName) => {
-    return await prisma.User.findUnique({
-        where: {
-            userName: userName
-        
-        },
-    });
-};
-
-
-router.post('/signup', async(req, res) => {
-    try{
-        console.log(req.body);
-        const {userName, userPhone ,userEmail, userPassword}  = req.body;
-    
-        const salt = await bcrypt.genSalt(10);
-        const hash = await bcrypt.hash(userPassword, salt);
-        
-
-        const createUser = await prisma.User.create({
-            data:{
-                userName: userName,
-                userPhone: userPhone,
-                userEmail: userEmail,
-                userPassword: hash,
-            },
-        });
-        delete createUser.userPassword;
-
-        const accessToken = jwt.sign(createUser, process.env.TOKEN, {
-            expiresIn: "1h",
-          });
-
-        res.json({ accessToken: accessToken, User: createUser});
-    } catch(error){
-        res.status(400).json({ message: error.message });      
+  return await prisma.User.findUnique({
+    where: {
+      userName: userName
     }
-    });
+  })
+}
 
-    
-    router.post("/signin", async (req, res) => {
-        try{
-            const {userName, userPassword}  = req.body;
+router.post('/signup', async (req, res) => {
+  try {
+    console.log(req.body)
+    const { userName, userPhone, userEmail, userPassword } = req.body
 
-            const checkName = await findName(userName);
+    const salt = await bcrypt.genSalt(10)
+    const hash = await bcrypt.hash(userPassword, salt)
 
-            if (!checkName){
-                throw new Error("this accout maime wow ");
-            }
+    const createUser = await prisma.User.create({
+      data: {
+        userName: userName,
+        userPhone: userPhone,
+        userEmail: userEmail,
+        userPassword: hash
+      }
+    })
+    delete createUser.userPassword
 
-            const checkPassword = await bcrypt.compare(userPassword,checkName.userPassword);
+    const accessToken = jwt.sign(createUser, process.env.TOKEN, {
+      expiresIn: '1h'
+    })
 
-            console.log(checkPassword);
+    res.json({ accessToken: accessToken, User: createUser })
+  } catch (error) {
+    res.status(400).json({ message: error.message })
+  }
+})
 
-            if(!checkPassword){
-                throw new Error("password is not match");
-            }
-            delete checkName.userPassword;
+router.post('/signin', async (req, res) => {
+  try {
+    const { userName, userPassword } = req.body
 
-            const accessToken = jwt.sign(checkName, process.env.TOKEN, {
-                expiresIn:"1h",
-            });
+    const checkName = await findName(userName)
 
-            res.json({ accessToken: accessToken , User: checkName });
-        }catch(error){
-            res.status(400).json({ message: error.message });
-        }
+    if (!checkName) {
+      throw new Error('this accout maime wow ')
+    }
 
+    const checkPassword = await bcrypt.compare(userPassword, checkName.userPassword)
 
-        
-    });
+    console.log(checkPassword)
 
-    router.get("/users", async (req, res) => {
-        try{
-            const users = await prisma.User.findMany();
-            res.json(users);
-        }catch(error){
-            res.status(400).json({message: error.message });
-        }
-    });
+    if (!checkPassword) {
+      throw new Error('password is not match')
+    }
+    delete checkName.userPassword
 
-    export default router;
+    const accessToken = jwt.sign(checkName, process.env.TOKEN, {
+      expiresIn: '1h'
+    })
+
+    res.json({ accessToken: accessToken, User: checkName })
+  } catch (error) {
+    res.status(400).json({ message: error.message })
+  }
+})
+
+router.get('/users', async (req, res) => {
+  try {
+    const users = await prisma.User.findMany()
+    res.json(users)
+  } catch (error) {
+    res.status(400).json({ message: error.message })
+  }
+})
+
+export default router
