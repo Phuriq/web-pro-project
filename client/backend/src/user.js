@@ -25,30 +25,11 @@ const findName = async (userName) => {
     });
 };
 
-const findEmail = async (userEmail) => {
-    return await prisma.User.findUnique({
-        where: {
-            userEmail: userEmail
-        
-        },
-    });
-};
-
 // register
 router.post('/signup', async(req, res) => {
     try{
         console.log(req.body);
         const {userName, userPhone ,userEmail, userPassword}  = req.body;
-
-        const checkName = await findName(userName);
-        const checkEmail = await findEmail(userEmail);
-
-        if (checkName){
-            throw new Error("This username is already registered.");
-        }
-        if (checkEmail){
-            throw new Error("This Email is already registered.");
-        }
     
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(userPassword, salt);
@@ -82,7 +63,7 @@ router.post('/signup', async(req, res) => {
             const checkName = await findName(userName);
 
             if (!checkName){
-                throw new Error("user is not registered");
+                throw new Error("this accout maime wow ");
             }
 
             const checkPassword = await bcrypt.compare(userPassword,checkName.userPassword);
