@@ -1,0 +1,32 @@
+<script>
+export default {
+    props: [
+        "id",
+        "name",
+        "date",
+        "image",
+        "title",
+        "trailer",
+        "category"
+    ]
+}
+</script>
+
+<template>
+    <div>
+        <Card id=card-bg class="flex flex-column align-items-center surface-ground border-round-2xl" style="height: 595px; width: 275px ">
+            <template #content>
+                <div>
+                <img :src="image" style="height: 400px; width: 250px" class="border-round-xl" />
+                <h5 class="text-green-400 mt-2">{{ date }}</h5>
+                <h4 class="mt-3">{{ name }}</h4>
+                </div>
+            </template>
+        </Card>
+    </div>
+</template>
+<style>
+#card-bg {
+    background-image: linear-gradient(to bottom right, #0b4438, #141b17, #165346)
+}
+</style>
