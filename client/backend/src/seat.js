@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const router = express.Router()
 
-// สร้างข้อมูลรอบหนังโดยเป็นข้อมูลที่อยู่ในโรงภาพยนต์
+// สร้างที่นั่ง
 router.post('/', async (req, res) => {
   try {
     const { theaterId, seatRow, seatNumber } = req.body
@@ -20,6 +20,7 @@ router.post('/', async (req, res) => {
   }
 })
 
+// ดึงข้อมูลที่นั่งตาม theaterId แล้วJoinตารางreservarions เพื่อดึงreservationที่มีข้อมูลตรงกับที่นั่ง
 router.get('/:theaterId', async (req, res) => {
   try {
     const { theaterId } = req.params
