@@ -17,11 +17,11 @@ export default {
                 },
                 {
                     title: "asd",
-                    name: 'https://www.fungjaizine.com/wp-content/uploads/2018/09/Untitled-1-6.jpg',
+                    name: 'https://media.discordapp.net/attachments/895540915714789417/1109994835001225277/343061251_1316386002558050_5877911506203771466_n.jpg?width=2160&height=1130',
                 },
                 {
                     title: "zxc",
-                    name: 'https://www.fungjaizine.com/wp-content/uploads/2018/07/slurcover02.jpg',
+                    name: 'https://media.discordapp.net/attachments/895540915714789417/1109994835282239519/338741076_700124018529327_4973320713406242642_n.jpg?width=2160&height=900',
                 }
             ],
         }
