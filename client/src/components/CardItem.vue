@@ -27,6 +27,6 @@ export default {
 </template>
 <style>
 #card-bg {
-    background-image: linear-gradient(to bottom right, #0b4438, #141b17, #165346)
+    background: linear-gradient(150deg, #013812, #200467 100%);
 }
 </style>
