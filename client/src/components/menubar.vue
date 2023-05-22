@@ -2,8 +2,8 @@
     <div id=grad1 class="flex align-items-center justify-content-between w-full bg-gray-900 p-2">
         <div class="flex align-items-center">
             <img alt="logo"
-                src="https://media.discordapp.net/attachments/895540915714789417/1108411563053948949/Screenshot_2566-05-17_at_22.10.55-removebg-preview.png?width=1256&height=388"
-                height="40" class="mr-2" />
+                src="https://media.discordapp.net/attachments/895540915714789417/1109996701667823687/awdadwadwawd.png?width=808&height=480"
+                height="40" width="80" class="ml-2" />
             <router-link to="/home">
                 <Button label="Movies" class="p-button-text ml-5" id=button />
             </router-link>
