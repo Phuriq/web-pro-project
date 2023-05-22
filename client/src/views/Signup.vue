@@ -36,8 +36,8 @@ export default {
                         userEmail: this.formData.useremail,
                         userPhone: this.formData.userphone,
                     });
-                    // this.$router.push('/signin')
-                    //     .then(() => window.location.reload());
+                     this.$router.push('/signin')
+                         .then(() => window.location.reload());
                 } else {
                     throw new Error("validate is not pass")
                 }
