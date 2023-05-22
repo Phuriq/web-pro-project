@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const router = express.Router()
 
-// สร้างข้อมูลรอบหนังโดยเป็นข้อมูลที่อยู่ในโรงภาพยนต์
+// สร้างข้อมูลรอบหนังโดยเป็น ข้อมูลที่อยู่ในโรงภาพยนต์
 router.post('/round', async (req, res) => {
   const { movieId, theaterId, roundStart, roundEnd } = req.body
   try {
@@ -32,6 +32,7 @@ router.get('/round', async (req, res) => {
   }
 })
 
+// ดึงข้อมูลรอบหนังที่ตรงกับ roundId โดยjoin ตาราง theater กับ movie เพื่อดึง theater กับ movie ที่ ตรงกับ roundId
 router.get('/round/:roundId', async (req, res) => {
   try {
     const roundId = req.params.roundId

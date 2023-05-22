@@ -29,11 +29,11 @@ router.get('/theater', async (req, res) => {
   }
 })
 
+// ดึงข้อมูลโรงภาพยนต์โดยใช้ theaterId
 router.get('/:theaterId', async (req, res) => {
   try {
     const theaterId = req.params.theaterId
 
-    // Retrieve theater and movie information based on theaterId and movieId
 
     const theater = await prisma.Theater.findUnique({
       where: {
@@ -41,13 +41,11 @@ router.get('/:theaterId', async (req, res) => {
       }
     })
 
-    // Return theater and movie information in the response
     res.json(theater)
   } catch (error) {
     res.status(400).json({ message: error.message })
   }
 })
 
-// ดึงข้อมูลการจองตั๋วตาม ID
 
 export default router
