@@ -17,11 +17,11 @@ export default {
                 },
                 {
                     title: "asd",
-                    name: 'https://media.discordapp.net/attachments/895540915714789417/1109994835001225277/343061251_1316386002558050_5877911506203771466_n.jpg?width=2160&height=1130',
+                    name: 'https://www.fungjaizine.com/wp-content/uploads/2018/09/Untitled-1-6.jpg',
                 },
                 {
                     title: "zxc",
-                    name: 'https://media.discordapp.net/attachments/895540915714789417/1109994835282239519/338741076_700124018529327_4973320713406242642_n.jpg?width=2160&height=900',
+                    name: 'https://www.fungjaizine.com/wp-content/uploads/2018/07/slurcover02.jpg',
                 }
             ],
         }
@@ -97,17 +97,17 @@ export default {
 }
 
 body {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(90.09deg, #000000 11.01%, #060016 132.06%);
 
 }
 
 #bg2 {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(90.09deg, #000000 11.01%, #1B0A4A 132.06%, #115001 164.68%);
 
 }
 
 #bg3 {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 20, 1) 92%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(90.09deg, #000000 11.01%, #1B0A4A 132.06%, #115001 164.68%);
 
 }
 
@@ -129,4 +129,3 @@ body {
     opacity: 1
 }
 </style>
-
