@@ -15,7 +15,7 @@
           
           <div class="p-5 " v-for="item in ticket.items" :key="item.id">
             <reserveCard :image="item.round.movie.movieImage" :date="ticket.date" :name="item.round.movie.movieName" 
-            :seat="item.seat.seatRow+item.seat.seatNumber" :theater="item.round.theater.theaterName" :round="item.round.roundStart"
+            :seat="item.seat.seatRow+item.seat.seatNumber" :theater="item.round.theater.theaterName" 
             @click="goScan()">
             </reserveCard>
           </div>
