@@ -21,27 +21,26 @@ export default {
                 username: { required, },
                 password: { required, maxLength: maxLength(10) },
                 useremail: { required, email },
-                userphone: { required }
+                userphone: { required, maxLength: maxLength(10) }
             }
         }
     },
     methods: {
         async register() {
             try {
-                const validate = await this.v$.$validate()
-                if(!validate) {
-                    throw new Error("validate not pass")
-                }
-                const response = await axios.post('http://localhost:8080/api/user/signup',
-                    {
+                this.v$.$touch(); // Trigger validation
+                if (!this.v$.$invalid) {
+                    await axios.post('http://localhost:8080/api/user/signup', {
                         userName: this.formData.username,
                         userPassword: this.formData.password,
                         userEmail: this.formData.useremail,
                         userPhone: this.formData.userphone,
-                    })
-                // this.$router.push('/signin')
-                //     .then(() => window.location.reload());
-
+                    });
+                    // this.$router.push('/signin')
+                    //     .then(() => window.location.reload());
+                } else {
+                    throw new Error("validate is not pass")
+                }
             } catch (error) {
                 alert(error?.response?.data?.message || error?.message)
             }
