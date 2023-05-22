@@ -2,8 +2,8 @@
     <div id=grad1 class="flex align-items-center justify-content-between w-full bg-gray-900 p-2">
         <div class="flex align-items-center">
             <img alt="logo"
-                src="https://media.discordapp.net/attachments/895540915714789417/1109996701667823687/awdadwadwawd.png?width=808&height=480"
-                height="40" width="80" class="ml-2" />
+                src="https://media.discordapp.net/attachments/895540915714789417/1108411563053948949/Screenshot_2566-05-17_at_22.10.55-removebg-preview.png?width=1256&height=388"
+                height="40" class="mr-2" />
             <router-link to="/home">
                 <Button label="Movies" class="p-button-text ml-5" id=button />
             </router-link>
@@ -16,8 +16,8 @@
                 style="background-color:#2196F3; color: #ffffff" shape="circle" /> -->
             <div class="card flex justify-content-center">
                 <Avatar :label=userName @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
-                    class="align-self-center bg-black-alpha-90 cursor-pointer mx-4" style="width: 150px; color: #41DD07" />
-                <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
+                    class="align-self-center cursor-pointer mx-4" style="width: 150px; background: black " />
+                <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" style="width: 150px; background: black "/>
                 <Toast />
             </div>
         </div>
