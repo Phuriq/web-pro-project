@@ -2,10 +2,24 @@ import express from "express";
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const router = express.Router();
+import * as yup from "yup";
+
+const movievalidate = yup.object().shape({
+    movieName: yup.string().required(),
+    movieReleaseDate: yup.date().required(),
+    movieHour: yup.string().required(),
+    movieTitle: yup.string().required(),
+    movieCategory: yup.string().required(),
+    movieImage: yup.string().required(),
+    movieTrailer: yup.string().required(),
+    movieTheater: yup.string().required(),
+    showtime: yup.string().required(),
+  });
 
 // สร้างหนังจากหน้าadmin
 router.post('/admin', async (req, res) => {
     try {
+        await movievalidate.validate(req.body, { abortEarly: false });
         console.log(req.body)
         const { movieName, movieReleaseDate, movieHour, movieTitle, movieCategory, movieImage, movieTrailer, movieTheater, showtime } = req.body;
 

@@ -32,7 +32,7 @@ export default {
 
         async CreatMovie() {
             try {
-                const response = await axios.post('http://localhost:8080/api/movie/home', {
+                const response = await axios.post('http://localhost:8080/api/movie/admin', {
                     movieName: this.movieName,
                     movieReleaseDate: this.movieReleaseDate,
                     movieHour: this.movieHour,
